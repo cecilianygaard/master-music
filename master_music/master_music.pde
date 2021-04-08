@@ -1,20 +1,19 @@
 import processing.sound.*;
 
-SoundFile C5;
+boolean debugMode = true;
+Application app;
 
-void setup()
-{
+void setup() {  
   size(1000, 1000);
-  C5 = new SoundFile(this, "audio\\Ensoniq-SQ-1-Violin-1-C5.wav");
+  app = new Application();
+  app.openPanel();
 }
 
-void draw()
-{
-  noFill();
-  rect(100, 100, 100, 100);
+void draw() {
+  background(255);
+  app.drawPanel();
 }
 
 void mouseClicked() {
-  if (mouseX>100 && mouseX<200 && mouseY>100 && mouseY<200)
-    C5.play();
+  app.clicked(mouseX, mouseY);
 }
