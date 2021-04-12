@@ -1,14 +1,19 @@
-class LogInScreen {
+class LoginScreen extends Panel {
 
-  void draw() {
-    noFill();
-    rectMode(CENTER);
-    rect(width*0.5, height*0.5, width*0.6, height*0.6, 5);
-    rect(width*0.6, height*0.5, width*0.2, height*0.075, 5);
-    rect(width*0.6, height*0.575, width*0.2, height*0.075, 5);
+  Text welcomeText;
+  Text loginText;
+  Button loginButton;
+  Input usernameInput;
 
-    textMode(CENTER);
-    textSize(50);
-    text("Log in", width*0.5, height*0.4);
+  LoginScreen() {
+    super(0, 120, 1080, pageHeight);
+    welcomeText = new Text(50, 50, 500, "Velkommen til Master-Music!");
+    addPanel(welcomeText);
+    loginText = new Text(503, 520, 500, "Log in");
+    addPanel(loginText);
+    loginButton = new Button(500, 700, 300, 50, "Log in");
+    addPanel(loginButton);
+    usernameInput = new Input(500, 600, 300, 50);
+    addPanel(usernameInput);
   }
 }

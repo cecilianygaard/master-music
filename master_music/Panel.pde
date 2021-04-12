@@ -75,9 +75,10 @@ class Panel
     popMatrix();
   }
   
-  void onDraw()
-  {
-    
+  void onDraw() {
+    fill(255);
+    noStroke();
+    rect(0, 0, w, h);
   }
   
   boolean clicked(int px, int py)
