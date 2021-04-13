@@ -1,19 +1,44 @@
 class LoginScreen extends Panel {
 
   Text welcomeText;
+  Text welcomeText2;
   Text loginText;
   Button loginButton;
   Input usernameInput;
+  Input passwordInput;
+  Text usernameText;
+  Text passwordText;
 
   LoginScreen() {
     super(0, 120, 1080, pageHeight);
-    welcomeText = new Text(50, 50, 500, "Velkommen til Master-Music!");
+
+    welcomeText = new Text(50, 70, 1080, "Welcome to Master-Music!");
     addPanel(welcomeText);
-    loginText = new Text(503, 520, 500, "Log in");
+
+    welcomeText2 = new Text(50, 150, 1080, "Now is your chance to log into the lovely world of music!");
+    addPanel(welcomeText2);
+
+    loginText = new Text(480, 500, 500, "Log in");
     addPanel(loginText);
-    loginButton = new Button(500, 700, 300, 50, "Log in");
+
+    loginButton = new Button(390, 800, 300, 50, "Log in");
     addPanel(loginButton);
-    usernameInput = new Input(500, 600, 300, 50);
+
+    usernameInput = new Input(600, 600, 300, 50);
     addPanel(usernameInput);
+
+    passwordInput = new Input(600, 700, 300, 50);
+    addPanel(passwordInput);
+
+    usernameText = new Text(180, 595, 400, "Username:");
+    addPanel(usernameText);
+
+    passwordText = new Text(180, 695, 400, "Password:");
+    addPanel(passwordText);
+
+//TODO: Draw this rectangle!
+    //fill(255, 0, 0);
+    //stroke(0);
+    //rect(300, 300, 200, 200, 5);
   }
 }

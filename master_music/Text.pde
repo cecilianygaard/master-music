@@ -8,7 +8,7 @@ class Text extends Panel {
   }
   
   void onDraw() {
-    textSize(25);
+    textSize(35);
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();

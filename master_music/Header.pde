@@ -1,14 +1,19 @@
 class Header extends Panel {
   Button logoutButton;
+  Button backButton;
   
   Header() {
     super(0, 0, 1080, 120);
-    logoutButton = new Button(650, 35, 300, 50, "Log out");
+    
+    logoutButton = new Button(800, 35, 200, 50, "Log out");
     addPanel(logoutButton);
+    
+    backButton = new Button(80, 35, 200, 50, "Back");
+    addPanel(backButton);
   }
 
   void onDraw() {
-    fill(105);
+    fill(145);
     noStroke();
     rect(0, 0, w, h);
   }

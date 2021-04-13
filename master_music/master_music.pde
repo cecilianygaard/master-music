@@ -24,7 +24,7 @@ void setup() {
 }
 
 void draw() {
-  background(150);
+  background(255);
   scale(scalingFactor);
   app.drawPanel();
 }

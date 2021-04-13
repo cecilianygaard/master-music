@@ -6,8 +6,9 @@ class Application extends Panel {
   Footer footer;
   LoginScreen loginScreen;
   SignupScreen signupScreen;
+  WelcomeScreen welcomeScreen;
 
-  int gameScore=0;
+  int gameScore = 0;
   String userName;
 
 
@@ -22,16 +23,18 @@ class Application extends Panel {
 
     loginScreen = new LoginScreen();
     addPanel(loginScreen);
+
     signupScreen = new SignupScreen();
     addPanel(signupScreen);
+    
+    welcomeScreen = new WelcomeScreen();
+    addPanel(welcomeScreen);
 
     currentPage = loginScreen;
   }
 
-  void changePage(Panel from, Panel to)
-  {
-    if (from!=null && to!=null && from!=to)
-    {
+  void changePage(Panel from, Panel to) {
+    if (from != null && to != null && from != to) {
       from.closePanel();
       to.openPanel();
       app.currentPage = to;
@@ -39,19 +42,19 @@ class Application extends Panel {
     }
   }
 
-  void openPanel() 
-  {
+  void openPanel() {
 
     isOpen = true;
 
     // Open only initial pages
     header.openPanel();
     footer.openPanel();
-    loginScreen.openPanel();
+    //loginScreen.openPanel();
     //signupScreen.openPanel();
+    welcomeScreen.openPanel();
   }
-  
-    void onDraw() {
+
+  void onDraw() {
     fill(150);
     noStroke();
     rect(0, 0, w, h);
