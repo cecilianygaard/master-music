@@ -35,10 +35,11 @@ class LoginScreen extends Panel {
 
     passwordText = new Text(180, 695, 400, "Password:");
     addPanel(passwordText);
+  }
 
-//TODO: Draw this rectangle!
-    //fill(255, 0, 0);
-    //stroke(0);
-    //rect(300, 300, 200, 200, 5);
+  void onDraw() {
+    noFill();
+    stroke(0);
+    rect(150, 475, 780, 525, 15);
   }
 }

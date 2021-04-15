@@ -44,4 +44,10 @@ class SignupScreen extends Panel {
     reenterPasswordText = new Text(180, 795, 400, "Reenter password:");
     addPanel(reenterPasswordText);
   }
+
+  void onDraw() {
+    noFill();
+    stroke(0);
+    rect(150, 475, 780, 525, 15);
+  }
 }

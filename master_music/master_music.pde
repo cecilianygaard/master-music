@@ -12,12 +12,13 @@ void setup() {
   size(540, 960);
   screenWidth = width;
   screenHeight = height;
-  scalingFactor = (float)screenWidth/1080;
-  pageHeight = floor(screenHeight/scalingFactor - 240);
 
   if (width > height) {
     screenWidth = floor(((float)height/16.0)*9);
   }
+
+  scalingFactor = (float)screenWidth/1080;
+  pageHeight = floor(screenHeight/scalingFactor - 240);
 
   app = new Application();
   app.openPanel();

@@ -7,6 +7,12 @@ class Application extends Panel {
   LoginScreen loginScreen;
   SignupScreen signupScreen;
   WelcomeScreen welcomeScreen;
+  PerfectPitchTrainerScreen perfectPitchTrainerScreen;
+  CorrectAnswerScreen correctAnswerScreen;
+  WrongAnswerScreen wrongAnswerScreen;
+  NodeNameTrainerScreen nodeNameTrainerScreen;
+  MusicTheoryFlashcardsScreen musicTheoryFlashcardsScreen;
+  MusicTheoryFlashcardsScreen2 musicTheoryFlashcardsScreen2;
 
   int gameScore = 0;
   String userName;
@@ -26,10 +32,28 @@ class Application extends Panel {
 
     signupScreen = new SignupScreen();
     addPanel(signupScreen);
-    
+
     welcomeScreen = new WelcomeScreen();
     addPanel(welcomeScreen);
 
+    perfectPitchTrainerScreen = new PerfectPitchTrainerScreen();
+    addPanel(perfectPitchTrainerScreen);
+
+    correctAnswerScreen = new CorrectAnswerScreen();
+    addPanel(correctAnswerScreen);
+
+    wrongAnswerScreen = new WrongAnswerScreen();
+    addPanel(wrongAnswerScreen);
+    
+    nodeNameTrainerScreen = new NodeNameTrainerScreen();
+    addPanel(nodeNameTrainerScreen);
+    
+    musicTheoryFlashcardsScreen = new MusicTheoryFlashcardsScreen();
+    addPanel(musicTheoryFlashcardsScreen);
+
+    musicTheoryFlashcardsScreen2 = new MusicTheoryFlashcardsScreen2();
+    addPanel(musicTheoryFlashcardsScreen2);
+    
     currentPage = loginScreen;
   }
 
@@ -51,11 +75,17 @@ class Application extends Panel {
     footer.openPanel();
     //loginScreen.openPanel();
     //signupScreen.openPanel();
-    welcomeScreen.openPanel();
+    //welcomeScreen.openPanel();
+    //perfectPitchTrainerScreen.openPanel();
+    //correctAnswerScreen.openPanel();
+    //wrongAnswerScreen.openPanel();
+    //nodeNameTrainerScreen.openPanel();
+    //musicTheoryFlashcardsScreen.openPanel();
+    //musicTheoryFlashcardsScreen2.openPanel();
   }
 
   void onDraw() {
-    fill(150);
+    fill(255);
     noStroke();
     rect(0, 0, w, h);
   }
