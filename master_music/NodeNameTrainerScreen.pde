@@ -1,18 +1,25 @@
 class NodeNameTrainerScreen extends Panel {
+
   Text questionText;
   Text scoreText;
-  
+  String[] buttonTexts = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+  Button[] buttons = new Button[12];
+
   NodeNameTrainerScreen() {
     super(0, 120, 1080, pageHeight);
 
     questionText = new Text(380, 300, 400, "Which node is this?"); //TODO: Insert random question.
     addPanel(questionText);
 
-    //for(int = i; i < 12; ) {
-    //
-    //}
-
     scoreText = new Text(475, 900, 300, "Score: " + "5"); //TODO: Insert score instead of 5.
     addPanel(scoreText);
+
+    for (int y = 0; y < 3; y++) {
+      for (int x = 0; x < 4; x++) {
+        int index = x + y*4;
+        buttons[index] = new Button(340 + x*100, 550 + y*100, 100, 100, buttonTexts[index]);
+        addPanel(buttons[index]);
+      }
+    }
   }
 }

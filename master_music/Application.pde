@@ -44,16 +44,16 @@ class Application extends Panel {
 
     wrongAnswerScreen = new WrongAnswerScreen();
     addPanel(wrongAnswerScreen);
-    
+
     nodeNameTrainerScreen = new NodeNameTrainerScreen();
     addPanel(nodeNameTrainerScreen);
-    
+
     musicTheoryFlashcardsScreen = new MusicTheoryFlashcardsScreen();
     addPanel(musicTheoryFlashcardsScreen);
 
     musicTheoryFlashcardsScreen2 = new MusicTheoryFlashcardsScreen2();
     addPanel(musicTheoryFlashcardsScreen2);
-    
+
     currentPage = loginScreen;
   }
 
@@ -81,7 +81,7 @@ class Application extends Panel {
     //wrongAnswerScreen.openPanel();
     //nodeNameTrainerScreen.openPanel();
     //musicTheoryFlashcardsScreen.openPanel();
-    //musicTheoryFlashcardsScreen2.openPanel();
+    musicTheoryFlashcardsScreen2.openPanel();
   }
 
   void onDraw() {
