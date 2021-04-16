@@ -73,20 +73,14 @@ class Application extends Panel {
     // Open only initial pages
     header.openPanel();
     footer.openPanel();
-    loginScreen.openPanel();
+    //loginScreen.openPanel();
     //signupScreen.openPanel();
     //welcomeScreen.openPanel();
     //perfectPitchTrainerScreen.openPanel();
     //correctAnswerScreen.openPanel();
     //wrongAnswerScreen.openPanel();
-    //nodeNameTrainerScreen.openPanel();
+    nodeNameTrainerScreen.openPanel();
     //musicTheoryFlashcardsScreen.openPanel();
     //musicTheoryFlashcardsScreen2.openPanel();
-  }
-
-  void onDraw() {
-    fill(255);
-    noStroke();
-    rect(0, 0, w, h);
   }
 }

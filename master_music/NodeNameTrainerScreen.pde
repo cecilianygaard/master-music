@@ -17,7 +17,7 @@ class NodeNameTrainerScreen extends Panel {
     for (int y = 0; y < 3; y++) {
       for (int x = 0; x < 4; x++) {
         int index = x + y*4;
-        buttons[index] = new Button(340 + x*100, 550 + y*100, 100, 100, buttonTexts[index]);
+        buttons[index] = new Button(320 + x*120, 530 + y*120, 100, 100, buttonTexts[index]);
         addPanel(buttons[index]);
       }
     }

@@ -24,8 +24,8 @@ class Panel {
   void openPanel() {
     isOpen = true;
     if (debugMode)
-      println("openPanel:"+this.getClass());
-    for (Panel p : Children)
+      println("openPanel:" + this.getClass());
+    for (Panel p : Children) 
       p.openPanel();
   }
 
