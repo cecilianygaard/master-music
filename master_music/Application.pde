@@ -73,7 +73,7 @@ class Application extends Panel {
     // Open only initial pages
     header.openPanel();
     footer.openPanel();
-    //loginScreen.openPanel();
+    loginScreen.openPanel();
     //signupScreen.openPanel();
     //welcomeScreen.openPanel();
     //perfectPitchTrainerScreen.openPanel();
@@ -81,7 +81,7 @@ class Application extends Panel {
     //wrongAnswerScreen.openPanel();
     //nodeNameTrainerScreen.openPanel();
     //musicTheoryFlashcardsScreen.openPanel();
-    musicTheoryFlashcardsScreen2.openPanel();
+    //musicTheoryFlashcardsScreen2.openPanel();
   }
 
   void onDraw() {
