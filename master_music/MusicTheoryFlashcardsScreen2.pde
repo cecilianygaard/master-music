@@ -16,12 +16,19 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
     addPanel(text);
 
     easyButton = new Button(175, 1150, 225, 100, "Easy");
+    easyButton.bindEvent(this, "onLevelClicked");
     addPanel(easyButton);
 
     mediumButton = new Button(450, 1150, 225, 100, "Medium");
+    mediumButton.bindEvent(this, "onLevelClicked");
     addPanel(mediumButton);
 
     hardButton = new Button(725, 1150, 225, 100, "Hard");
+    hardButton.bindEvent(this, "onLevelClicked");
     addPanel(hardButton);
+  }
+  
+  void onLevelClicked(Button b) {
+    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen);
   }
 }

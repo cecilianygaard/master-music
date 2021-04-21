@@ -22,6 +22,7 @@ class LoginScreen extends Panel {
     addPanel(loginText);
 
     loginButton = new Button(390, 800, 300, 50, "Log in");
+    loginButton.bindEvent(this, "onLoginButtonClicked");
     addPanel(loginButton);
 
     usernameInput = new Input(600, 600, 300, 50);
@@ -41,5 +42,9 @@ class LoginScreen extends Panel {
     noFill();
     stroke(0);
     rect(150, 475, 780, 525, 15);
+  }
+
+  void onLoginButtonClicked(Button b) {
+    app.changePage(app.currentPage, app.welcomeScreen);
   }
 }

@@ -10,6 +10,11 @@ class MusicTheoryFlashcardsScreen extends Panel {
     addPanel(instructionText);
 
     flashcardFront = new Button(210, 500, 700, 500, "How many Hertz is A4?");
+    flashcardFront.bindEvent(this, "onFlashcardFrontClicked");
     addPanel(flashcardFront);
+  }
+  
+  void onFlashcardFrontClicked(Button b) {
+    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen2);
   }
 }

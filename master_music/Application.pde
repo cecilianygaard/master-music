@@ -79,8 +79,8 @@ class Application extends Panel {
     //perfectPitchTrainerScreen.openPanel();
     //correctAnswerScreen.openPanel();
     //wrongAnswerScreen.openPanel();
-    nodeNameTrainerScreen.openPanel();
+    //nodeNameTrainerScreen.openPanel();
     //musicTheoryFlashcardsScreen.openPanel();
-    //musicTheoryFlashcardsScreen2.openPanel();
+    musicTheoryFlashcardsScreen2.openPanel();
   }
 }

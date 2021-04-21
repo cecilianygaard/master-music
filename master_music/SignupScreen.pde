@@ -10,7 +10,7 @@ class SignupScreen extends Panel {
   Text usernameText;
   Text passwordText;
   Text reenterPasswordText;
-
+  
   SignupScreen() {
     super(0, 120, 1080, pageHeight);
 
@@ -24,6 +24,7 @@ class SignupScreen extends Panel {
     addPanel(signupText);
 
     signupButton = new Button(390, 900, 300, 50, "Sign up");
+    signupButton.bindEvent(this, "onSignupButtonClicked");
     addPanel(signupButton);
 
     usernameInput = new Input(600, 600, 300, 50);
@@ -49,5 +50,9 @@ class SignupScreen extends Panel {
     noFill();
     stroke(0);
     rect(150, 475, 780, 525, 15);
+  }
+  
+    void onSignupButtonClicked(Button b) {
+    app.changePage(app.currentPage, app.welcomeScreen);
   }
 }
