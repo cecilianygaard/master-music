@@ -26,5 +26,6 @@ class Header extends Panel {
 
   void onLogoutButtonClicked(Button b) {
     app.changePage(app.currentPage, app.loginScreen);
+    app.previousPage = null;
   }
 }

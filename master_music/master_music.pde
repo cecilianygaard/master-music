@@ -31,5 +31,5 @@ void draw() {
 }
 
 void mouseClicked() {
-  app.clicked(mouseX, mouseY);
+  app.clicked(floor(mouseX/scalingFactor), floor(mouseY/scalingFactor));
 }
