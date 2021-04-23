@@ -29,6 +29,6 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
   }
   
   void onLevelClicked(Button b) {
-    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen);
+    app.screenStackChange(app.musicTheoryFlashcardsScreen);
   }
 }

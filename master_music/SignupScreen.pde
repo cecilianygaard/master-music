@@ -53,6 +53,6 @@ class SignupScreen extends Panel {
   }
   
     void onSignupButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.welcomeScreen);
+    app.screenStackChange(app.welcomeScreen);
   }
 }

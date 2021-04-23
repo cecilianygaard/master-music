@@ -45,6 +45,6 @@ class LoginScreen extends Panel {
   }
 
   void onLoginButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.welcomeScreen);
+    app.screenStackChange(app.welcomeScreen);
   }
 }

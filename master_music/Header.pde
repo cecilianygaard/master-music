@@ -21,11 +21,11 @@ class Header extends Panel {
   }
 
   void onBackButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.previousPage);
+    app.screenStackBack();
   }
 
   void onLogoutButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.loginScreen);
-    app.previousPage = null;
+    app.screenStackChange(app.loginScreen);
+    app.screenStackClear();
   }
 }

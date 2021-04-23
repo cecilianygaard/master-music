@@ -29,14 +29,14 @@ class WelcomeScreen extends Panel {
   }
 
   void onPerfectPitchTrainerButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.perfectPitchTrainerScreen);
+    app.screenStackChange(app.perfectPitchTrainerScreen);
   }
 
   void onNodeNameTrainerButtonClicked(Button b) {
-    app.changePage(app.currentPage, app.nodeNameTrainerScreen);
+    app.screenStackChange(app.nodeNameTrainerScreen);
   }
   
   void onMusicTheoryFlashcardsClicked(Button b) {
-    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen);
+    app.screenStackChange(app.musicTheoryFlashcardsScreen);
   }
 }

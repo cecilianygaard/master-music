@@ -1,6 +1,10 @@
+import java.util.Stack;
+
 class Application extends Panel {
   Panel currentPage;
   Panel previousPage;
+  //"Stack" is created in the Stack import.
+  Stack<Panel> screenStack = new Stack<Panel>();
 
   Header header;
   Footer footer;
@@ -57,20 +61,11 @@ class Application extends Panel {
     currentPage = loginScreen;
   }
 
-  void changePage(Panel from, Panel to) {
-    if (from != null && to != null && from != to) {
-      from.closePanel();
-      to.openPanel();
-      app.currentPage = to;
-      app.previousPage = from;
-    }
-  }
-
   void openPanel() {
 
     isOpen = true;
 
-    // Open only initial pages
+    // Open only initial screens
     header.openPanel();
     footer.openPanel();
     loginScreen.openPanel();
@@ -82,5 +77,28 @@ class Application extends Panel {
     //nodeNameTrainerScreen.openPanel();
     //musicTheoryFlashcardsScreen.openPanel();
     //musicTheoryFlashcardsScreen2.openPanel();
+  }
+  
+  void screenStackChange(Panel to) {
+    if (currentPage != null) {
+      currentPage.closePanel();
+      screenStack.push(currentPage);
+    }
+    currentPage = to;
+    currentPage.openPanel();
+  }
+  
+  void screenStackBack() {
+    if (!screenStack.empty()) {
+      if (currentPage != null) {
+        currentPage.closePanel();
+        currentPage = screenStack.pop();
+        currentPage.openPanel();
+      }
+    }
+  }
+  
+  void screenStackClear() {
+    screenStack.clear();
   }
 }
