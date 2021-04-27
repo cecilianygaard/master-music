@@ -8,6 +8,10 @@ int pageHeight;
 int screenWidth;
 int screenHeight;
 
+SinOsc createSinOsc() {
+  return new SinOsc(this);
+}
+
 void setup() {  
   size(540, 960);
   screenWidth = width;
