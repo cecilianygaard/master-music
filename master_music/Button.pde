@@ -25,7 +25,7 @@ class Button extends Panel {
   }
 
   void bindEvent(Object listener, String name) {
-    onPush.bind(listener, name); //<>// //<>//
+    onPush.bind(listener, name); //<>// //<>// //<>//
   }
 
   boolean onClicked(int px, int py) {
