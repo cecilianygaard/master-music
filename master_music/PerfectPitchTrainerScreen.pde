@@ -34,9 +34,9 @@ class PerfectPitchTrainerScreen extends Panel {
     if (toneIsPlaying == false) {
       toneIsPlaying = true;
 
-      Sine.play(200, 0.2);
-      Sine.play(205, 0.2);
-      Sine.play(400, 1);
+      Sine.play(200, 100);
+      Sine.play(205, 100);
+      Sine.play(440, 100);
     } else {
       toneIsPlaying = false;
       Sine.stop();

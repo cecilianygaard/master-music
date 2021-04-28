@@ -92,3 +92,37 @@ class Panel {
     return(false);
   }
 }
+
+class TimeToday extends Panel {
+  String writtenText;
+
+  TimeToday(int px, int py, int pw, String text) {
+    super(px, py, pw, 50);
+    writtenText = text;
+  }
+
+  void onDraw() {
+    textSize(35);
+    textAlign(LEFT, CENTER);
+    fill(0);
+    noStroke();
+    text(writtenText + " " + app.getTimeToday(), 0, 0, w, h);
+  }
+}
+
+class TimeTotal extends Panel {
+  String writtenText;
+
+  TimeTotal(int px, int py, int pw, String text) {
+    super(px, py, pw, 50);
+    writtenText = text;
+  }
+
+  void onDraw() {
+    textSize(35);
+    textAlign(LEFT, CENTER);
+    fill(0);
+    noStroke();
+    text(writtenText + " " + app.getTimeTotal(), 0, 0, w, h);
+  }
+}

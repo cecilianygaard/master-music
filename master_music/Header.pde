@@ -27,5 +27,6 @@ class Header extends Panel {
   void onLogoutButtonClicked(Button b) {
     app.screenStackChange(app.loginScreen);
     app.screenStackClear();
+    app.timerStop();
   }
 }

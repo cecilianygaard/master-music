@@ -32,6 +32,7 @@ void draw() {
   background(255);
   scale(scalingFactor);
   app.drawPanel();
+  app.timerCheck();
 }
 
 void mouseClicked() {

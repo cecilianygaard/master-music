@@ -1,14 +1,14 @@
 class Footer extends Panel {
-  Text todayTime;
-  Text totalTime;
+  TimeToday todayTime;
+  TimeTotal totalTime;
 
   Footer() {
     super(0, 120 + pageHeight, 1080, 120);
 
-    todayTime = new Text(50, 10, 1080, "Time spend on app today: " + "timeOnAppPerDay"); //TODO: Add time.
+    todayTime = new TimeToday(50, 10, 1080, "Time spend on app today: " + "");
     addPanel(todayTime);
 
-    totalTime = new Text(50, 50, 1080, "Time spend on app in total: " + "timeOnAppInTotal"); //TODO: Add time.
+    totalTime = new TimeTotal(50, 50, 1080, "Time spend on app in total: " + "");
     addPanel(totalTime);
   }
 
