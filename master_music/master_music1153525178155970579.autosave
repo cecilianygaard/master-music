@@ -1,6 +1,6 @@
-import processing.sound.*;
 import de.bezier.data.sql.mapper.*;
 import de.bezier.data.sql.*;
+import processing.sound.*;
 
 //Turn debugger on and off by defining whether the boolean is true or false.
 boolean debugMode = false;
@@ -27,18 +27,17 @@ void setup() {
 
   scalingFactor = (float)screenWidth/1080;
   pageHeight = floor(screenHeight/scalingFactor - 240);
-  
-  MasterMusic_db = new SQLite (this,"data/sqlite_database/MasterMusic.db");
 
   app = new Application();
   app.openPanel();
+  
+  MasterMusic_db = new SQLite( this, "data/sqlite_data/MasterMusic.db" );
 }
 
 void draw() {
   background(255);
   scale(scalingFactor);
   app.drawPanel();
-  app.timerCheck();
 }
 
 void mouseClicked() {
