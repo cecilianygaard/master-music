@@ -70,6 +70,17 @@ class Application extends Panel {
     currentPage = loginScreen;
   }
 
+  void changePage(Panel from, Panel to)
+  {
+    if (from!=null && to!=null && from!=to)
+    {
+      from.closePanel();
+      to.openPanel();
+      app.currentPage = to;
+      app.previousPage = from;
+    }
+  }
+
   void openPanel() {
 
     isOpen = true;
@@ -78,14 +89,6 @@ class Application extends Panel {
     header.openPanel();
     footer.openPanel();
     loginScreen.openPanel();
-    //signupScreen.openPanel();
-    //welcomeScreen.openPanel();
-    //perfectPitchTrainerScreen.openPanel();
-    //correctAnswerScreen.openPanel();
-    //wrongAnswerScreen.openPanel();
-    //nodeNameTrainerScreen.openPanel();
-    //musicTheoryFlashcardsScreen.openPanel();
-    //musicTheoryFlashcardsScreen2.openPanel();
   }
 
   void screenStackChange(Panel to) {
