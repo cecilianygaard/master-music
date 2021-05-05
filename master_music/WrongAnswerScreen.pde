@@ -6,7 +6,7 @@ class WrongAnswerScreen extends Panel {
   WrongAnswerScreen() {
     super(0, 120, 1080, pageHeight);
 
-    wrongText = new Text(215, 150, 1080, "TOUGH LUCK BUT THAT WAS WRONG!");
+    wrongText = new Text(215, 150, 1080, "TOUGH LUCK, BUT THAT WAS WRONG!");
     addPanel(wrongText);
 
     nextScreenButton = new Button(340, 400, 400, 200, "Click to start new game");

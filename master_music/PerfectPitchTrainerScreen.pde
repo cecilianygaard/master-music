@@ -1,7 +1,7 @@
 import processing.sound.*;
 
 class PerfectPitchTrainerScreen extends Panel {
-  
+
   Button playToneButton;
   Text scoreText;
   String[] buttonTexts = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
@@ -9,6 +9,7 @@ class PerfectPitchTrainerScreen extends Panel {
   int[] toneFrequences = {261, 277, 293, 311, 329, 349, 369, 391, 415, 440, 466, 493}; //TODO: Change to correct tones (see array two lines above).
   Boolean toneIsPlaying = false;
   Boolean toneIsPaused = false;
+  Boolean toneEverBeenPlayed = false;
   int playedTone;
   int selectedTone;
   SinOsc Sine;
@@ -47,26 +48,31 @@ class PerfectPitchTrainerScreen extends Panel {
       toneIsPaused = true;
       Sine.stop();
     }
+    toneEverBeenPlayed = true;
   }
 
   void onToneButtonsClicked(Button b) {
-    if (toneIsPlaying == true) {
-      toneIsPlaying = false;
-      Sine.stop();
-    }
-    toneIsPaused = false;
-
-    //Find out which tone was selected.
-    for (int i = 0; i < 12; i++) {
-      if (b.buttonText == buttonTexts[i]) {
-        selectedTone = i;
+    if (toneEverBeenPlayed == true) {
+      if (toneIsPlaying == true) {
+        toneIsPlaying = false;
+        Sine.stop();
       }
-    }
-    if (selectedTone == playedTone) {
-      app.changePage(app.currentPage, app.correctAnswerScreen);
-    }
-    if (selectedTone != playedTone) {
-      app.changePage(app.currentPage, app.wrongAnswerScreen);
+      toneIsPaused = false;
+
+      //Find out which tone was selected.
+      for (int i = 0; i < 12; i++) {
+        if (b.buttonText == buttonTexts[i]) {
+          selectedTone = i;
+        }
+      }
+      if (selectedTone == playedTone) {
+        app.changePage(app.currentPage, app.correctAnswerScreen);
+        toneEverBeenPlayed = false;
+      }
+      if (selectedTone != playedTone) {
+        app.changePage(app.currentPage, app.wrongAnswerScreen);
+        toneEverBeenPlayed = false;
+      }
     }
   }
 }
