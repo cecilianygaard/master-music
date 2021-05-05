@@ -10,6 +10,14 @@ int pageHeight;
 int screenWidth;
 int screenHeight;
 
+String username = "default username";
+String password = "default password";
+String question = "default question";
+String answer = "default answer";
+int user_id = 0;
+int instrument_id = 0;
+int question_id = 0;
+
 SQLite MasterMusic_db;
 
 SinOsc createSinOsc() {
@@ -27,8 +35,8 @@ void setup() {
 
   scalingFactor = (float)screenWidth/1080;
   pageHeight = floor(screenHeight/scalingFactor - 240);
-  
-  MasterMusic_db = new SQLite (this,"data/sqlite_database/MasterMusic.db");
+
+  MasterMusic_db = new SQLite (this, "data/sqlite_database/MasterMusic.db");
 
   app = new Application();
   app.openPanel();
@@ -39,6 +47,8 @@ void draw() {
   scale(scalingFactor);
   app.drawPanel();
   app.timerCheck();
+  answer = app.musicTheoryFlashcardsScreen.getlocal_answer();
+  app.musicTheoryFlashcardsScreen2.setlocal_answer2(answer);
 }
 
 void mouseClicked() {
