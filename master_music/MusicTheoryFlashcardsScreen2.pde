@@ -6,10 +6,10 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
   Button mediumButton;
   Button hardButton;
 
-  MusicTheoryFlashcardsScreen2(String answer) {
+  MusicTheoryFlashcardsScreen2() {
     super(0, 120, 1080, pageHeight);
 
-    flashcardBack = new Button(210, 500, 700, 500, answer);
+    flashcardBack = new Button(210, 500, 700, 500, "");
     addPanel(flashcardBack);
 
     text = new Text(220, 1050, 800, "How difficult did you find the question?");

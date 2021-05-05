@@ -22,6 +22,7 @@ class Header extends Panel {
 
   void onBackButtonClicked(Button b) {
     app.screenStackBack();
+//    if (app.currentPage == app.correctAnswerScreen || app.currentPage == app.wrongAnswerScreen) app.screenStackClear();
   }
 
   void onLogoutButtonClicked(Button b) {

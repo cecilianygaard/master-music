@@ -1,12 +1,12 @@
 import processing.sound.*;
 
 class PerfectPitchTrainerScreen extends Panel {
-
+  
   Button playToneButton;
   Text scoreText;
   String[] buttonTexts = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
   Button[] buttons = new Button[12];
-  int[] toneFrequences = {100, 120, 140, 160, 180, 450, 220, 240, 260, 440, 300, 400}; //TODO: Change to correct tones (see array two lines above).
+  int[] toneFrequences = {261, 277, 293, 311, 329, 349, 369, 391, 415, 440, 466, 493}; //TODO: Change to correct tones (see array two lines above).
   Boolean toneIsPlaying = false;
   Boolean toneIsPaused = false;
   int playedTone;
@@ -63,7 +63,10 @@ class PerfectPitchTrainerScreen extends Panel {
       }
     }
     if (selectedTone == playedTone) {
-      //TODO: Swift to correct screen.
+      app.changePage(app.currentPage, app.correctAnswerScreen);
+    }
+    if (selectedTone != playedTone) {
+      app.changePage(app.currentPage, app.wrongAnswerScreen);
     }
   }
 }
