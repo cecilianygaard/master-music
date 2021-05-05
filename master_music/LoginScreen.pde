@@ -8,6 +8,9 @@ class LoginScreen extends Panel {
   Input passwordInput;
   Text usernameText;
   Text passwordText;
+  
+  String username = " ";
+  String password = " ";
 
   LoginScreen() {
     super(0, 120, 1080, pageHeight);
@@ -36,6 +39,8 @@ class LoginScreen extends Panel {
 
     passwordText = new Text(180, 695, 400, "Password:");
     addPanel(passwordText);
+    
+    
   }
 
   void onDraw() {

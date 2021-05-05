@@ -1,5 +1,11 @@
 class MusicTheoryFlashcardsScreen2 extends Panel {
 
+  String local_answer2 = "default local answer2";
+
+  void setlocal_answer2(String _local_answer2) {
+    local_answer2 = _local_answer2;
+  }
+
   Button flashcardBack;
   Text text;
   Button easyButton;
@@ -8,8 +14,9 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
 
   MusicTheoryFlashcardsScreen2() {
     super(0, 120, 1080, pageHeight);
-
-    flashcardBack = new Button(210, 500, 700, 500, "");
+    
+    flashcardBack = new Button(210, 500, 700, 500, local_answer2);
+    
     addPanel(flashcardBack);
 
     text = new Text(220, 1050, 800, "How difficult did you find the question?");
@@ -27,7 +34,7 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
     hardButton.bindEvent(this, "onLevelClicked");
     addPanel(hardButton);
   }
-  
+
   void onLevelClicked(Button b) {
     app.screenStackChange(app.musicTheoryFlashcardsScreen);
   }
