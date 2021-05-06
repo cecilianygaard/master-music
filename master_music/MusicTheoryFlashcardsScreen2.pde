@@ -1,4 +1,4 @@
-class MusicTheoryFlashcardsScreen2 extends Panel {
+class MusicTheoryFlashcardsScreen2 extends Screen {
 
   String local_answer2 = "default local answer2";
 
@@ -13,7 +13,7 @@ class MusicTheoryFlashcardsScreen2 extends Panel {
   Button hardButton;
 
   MusicTheoryFlashcardsScreen2() {
-    super(0, 120, 1080, pageHeight);
+    super();
     
     flashcardBack = new Button(210, 500, 700, 500, local_answer2);
     

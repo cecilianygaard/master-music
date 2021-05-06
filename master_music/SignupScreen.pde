@@ -1,4 +1,4 @@
-class SignupScreen extends Panel {
+class SignupScreen extends Screen {
 
   Text welcomeText;
   Text welcomeText2;
@@ -10,9 +10,18 @@ class SignupScreen extends Panel {
   Text usernameText;
   Text passwordText;
   Text reenterPasswordText;
-  
+
+  StringVariable username;
+  StringVariable password;
+  StringVariable reenterPassword;
+
   SignupScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
+
+    username = new StringVariable();  
+    password = new StringVariable();
+    reenterPassword = new StringVariable();
+
 
     welcomeText = new Text(50, 70, 1080, "Welcome to Master-Music!");
     addPanel(welcomeText);
@@ -27,13 +36,13 @@ class SignupScreen extends Panel {
     signupButton.bindEvent(this, "onSignupButtonClicked");
     addPanel(signupButton);
 
-    usernameInput = new Input(600, 600, 300, 50);
+    usernameInput = new Input(600, 600, 300, 50, username);
     addPanel(usernameInput);
 
-    passwordInput = new Input(600, 700, 300, 50);
+    passwordInput = new Input(600, 700, 300, 50, password);
     addPanel(passwordInput);
 
-    reenterPasswordInput = new Input(600, 800, 300, 50);
+    reenterPasswordInput = new Input(600, 800, 300, 50, reenterPassword);
     addPanel(reenterPasswordInput);
 
     usernameText = new Text(180, 595, 400, "Create username:");
@@ -51,8 +60,8 @@ class SignupScreen extends Panel {
     stroke(0);
     rect(150, 475, 780, 525, 15);
   }
-  
-    void onSignupButtonClicked(Button b) {
+
+  void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.welcomeScreen);
   }
 }

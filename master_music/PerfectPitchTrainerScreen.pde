@@ -1,6 +1,6 @@
 import processing.sound.*;
 
-class PerfectPitchTrainerScreen extends Panel {
+class PerfectPitchTrainerScreen extends Screen {
 
   Button playToneButton;
   Text scoreText;
@@ -15,7 +15,7 @@ class PerfectPitchTrainerScreen extends Panel {
   SinOsc Sine;
 
   PerfectPitchTrainerScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     Sine = createSinOsc();
 

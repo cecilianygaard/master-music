@@ -1,4 +1,4 @@
-class WelcomeScreen extends Panel {
+class WelcomeScreen extends Screen {
 
   Text welcomeText;
   Text welcomeText2; 
@@ -7,7 +7,7 @@ class WelcomeScreen extends Panel {
   Button musicTheoryFlashcards;
 
   WelcomeScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     welcomeText = new Text(50, 70, 1080, "Hi Sara!");
     addPanel(welcomeText);

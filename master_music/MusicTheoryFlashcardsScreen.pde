@@ -1,4 +1,4 @@
-class MusicTheoryFlashcardsScreen extends Panel {
+class MusicTheoryFlashcardsScreen extends Screen {
   String local_question = "default local question ";
   String local_answer = "default local answer";
   int local_user_id = 0;
@@ -9,7 +9,7 @@ class MusicTheoryFlashcardsScreen extends Panel {
   Button flashcardFront;
 
   MusicTheoryFlashcardsScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     instructionText = new Text(220, 300, 800, "Click on the flashcard to turn it around");
     addPanel(instructionText);

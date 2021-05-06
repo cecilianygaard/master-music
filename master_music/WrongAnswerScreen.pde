@@ -1,10 +1,10 @@
-class WrongAnswerScreen extends Panel {
+class WrongAnswerScreen extends Screen {
 
   Text wrongText;
   Button nextScreenButton;
 
   WrongAnswerScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     wrongText = new Text(215, 150, 1080, "TOUGH LUCK, BUT THAT WAS WRONG!");
     addPanel(wrongText);

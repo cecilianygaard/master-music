@@ -1,10 +1,10 @@
-class CorrectAnswerScreen extends Panel {
+class CorrectAnswerScreen extends Screen {
 
   Text correctText;
   Button nextScreenButton;
 
   CorrectAnswerScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     correctText = new Text(450, 150, 1080, "CORRECT!");
     addPanel(correctText);

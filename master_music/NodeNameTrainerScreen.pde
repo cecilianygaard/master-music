@@ -1,4 +1,4 @@
-class NodeNameTrainerScreen extends Panel {
+class NodeNameTrainerScreen extends Screen {
 
   Text questionText;
   Text scoreText;
@@ -6,7 +6,7 @@ class NodeNameTrainerScreen extends Panel {
   Button[] buttons = new Button[12];
 
   NodeNameTrainerScreen() {
-    super(0, 120, 1080, pageHeight);
+    super();
 
     questionText = new Text(380, 300, 400, "Which node is this?"); //TODO: Insert random question.
     addPanel(questionText);
