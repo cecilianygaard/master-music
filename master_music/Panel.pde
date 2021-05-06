@@ -1,7 +1,7 @@
 class Panel {
   ArrayList<Panel>Children = new ArrayList<Panel>();
-  Boolean focus = false;
   Panel parent;
+  boolean focus=false;
 
   int x;
   int y;
@@ -24,6 +24,7 @@ class Panel {
 
   void openPanel() {
     isOpen = true;
+    onOpen();
     if (debugMode)
       println("openPanel:" + this.getClass());
     for (Panel p : Children) 
@@ -35,6 +36,7 @@ class Panel {
 
   void closePanel() {
     isOpen = false;
+    onClose();
     for (Panel p : Children)
       p.closePanel();
   }
@@ -88,12 +90,10 @@ class Panel {
     py = py-y;
 
     if (px>0 && px<w && py>0 && py<h) {
-      for (Panel p : Children)
-        if (p.clicked(px, py))
-          return(true);
-
-      if (onClicked(px, py))
-        return(true);
+      for (Panel p : Children) {
+        if (p.clicked(px, py)) return(true);
+      }
+      if (onClicked(px, py)) return(true);
     }
     return(false);
   }
@@ -106,9 +106,11 @@ class Panel {
     if (isOpen == false) return(false);
 
     for (Panel p : Children) {
-      if (p.typed() == true) return(true);
+      if (p.typed()) return (true);
     }
-    if (onTyped() == true) return(true);
+    
+    if (onTyped()) return(true);
+
     return(false);
   }
 

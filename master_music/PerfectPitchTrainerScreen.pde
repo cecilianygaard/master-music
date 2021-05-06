@@ -52,8 +52,8 @@ class PerfectPitchTrainerScreen extends Screen {
   }
 
   void onToneButtonsClicked(Button b) {
-    if (toneEverBeenPlayed == true) {
-      if (toneIsPlaying == true) {
+    if (toneEverBeenPlayed) {
+      if (toneIsPlaying) {
         toneIsPlaying = false;
         Sine.stop();
       }

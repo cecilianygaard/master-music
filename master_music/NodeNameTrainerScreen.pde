@@ -8,7 +8,7 @@ class NodeNameTrainerScreen extends Screen {
   NodeNameTrainerScreen() {
     super();
 
-    questionText = new Text(380, 300, 400, "Which node is this?"); //TODO: Insert random question.
+    questionText = new Text(380, 250, 400, "Which node is this?"); //TODO: Insert random question.
     addPanel(questionText);
 
     scoreText = new Text(475, 900, 300, "Score: " + "5"); //TODO: Insert score instead of 5.
@@ -24,8 +24,12 @@ class NodeNameTrainerScreen extends Screen {
     }
   }
   
-  //  void onToneButtonsClicked(Button b) {
-  //  if (toneIsPlaying == true) {
+  void drawNodePicture() {
+    line(200, 200, 200, 100);
+  }
+  
+  void onToneButtonsClicked(Button b) {
+  //  if (toneIsPlaying) {
   //    toneIsPlaying = false;
   //    Sine.stop();
   //  }
@@ -43,5 +47,5 @@ class NodeNameTrainerScreen extends Screen {
   //  if (selectedTone != playedTone) {
   //    app.changePage(app.currentPage, app.wrongAnswerScreen);
   //  }
-  //}
+  }
 }

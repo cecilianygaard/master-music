@@ -18,10 +18,9 @@ class SignupScreen extends Screen {
   SignupScreen() {
     super();
 
-    username = new StringVariable();  
+    username = new StringVariable();
     password = new StringVariable();
     reenterPassword = new StringVariable();
-
 
     welcomeText = new Text(50, 70, 1080, "Welcome to Master-Music!");
     addPanel(welcomeText);

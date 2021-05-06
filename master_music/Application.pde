@@ -70,10 +70,8 @@ class Application extends Panel {
     currentPage = loginScreen;
   }
 
-  void changePage(Panel from, Panel to)
-  {
-    if (from!=null && to!=null && from!=to)
-    {
+  void changePage(Panel from, Panel to) {
+    if (from!=null && to!=null && from!=to) {
       from.closePanel();
       to.openPanel();
       app.currentPage = to;
@@ -135,7 +133,7 @@ class Application extends Panel {
   //This function checks the time often. 
   //The time is checked to see if the day has changed to show timeToday correctly.
   void timerCheck() {
-    if (timerStarted == true) {
+    if (timerStarted) {
       long t = (System.currentTimeMillis()/1000) - timerSecondsSince70;
       if (t/86400 != timeToday) {
         timeToday = timeToday + t;
@@ -148,14 +146,14 @@ class Application extends Panel {
   }
 
   long getTimeToday() {
-    if (timerStarted == true) {
+    if (timerStarted) {
       long t = (System.currentTimeMillis()/1000) - timerSecondsSince70;
       return (timeToday + t);
     } else return(0);
   }
 
   long getTimeTotal() {
-    if (timerStarted == true) {
+    if (timerStarted) {
       long t = (System.currentTimeMillis()/1000) - timerSecondsSince70;
       return (timeTotal + t);
     } else return(0);

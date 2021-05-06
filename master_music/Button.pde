@@ -1,4 +1,4 @@
-import java.lang.reflect.Method;
+import java.lang.reflect.Method; //<>//
 
 class Button extends Panel {
   String buttonText;
@@ -6,9 +6,9 @@ class Button extends Panel {
 
   Button(int px, int py, int pw, int ph, String text) {
     super(px, py, pw, ph);
-    
+
     buttonText = text;
-    
+
     onPush = new Event(Button.class);
   }
 
@@ -25,7 +25,7 @@ class Button extends Panel {
   }
 
   void bindEvent(Object listener, String name) {
-    onPush.bind(listener, name); //<>// //<>// //<>//
+    onPush.bind(listener, name);
   }
 
   boolean onClicked(int px, int py) {

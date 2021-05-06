@@ -14,10 +14,11 @@ class Input extends Panel {
       stroke(128);
       strokeWeight(1);
     }
+
     noFill();
     rect (0, 0, w, h);
-
     textSize(32);
+
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();
@@ -27,18 +28,14 @@ class Input extends Panel {
   boolean onTyped() {
     char c;
     if (focus) {
-      println(keyCode);
-      if (key==BACKSPACE || (key==CODED && keyCode==BACKSPACE)) {
-        if (var.var.length()>0) {
-          var.var = var.var.substring( 0, var.var.length()-1);
-        }
+      if (key == BACKSPACE || (key == CODED && keyCode == BACKSPACE)) {
+        if (var.var.length() > 0) 
+          var.var = var.var.substring(0, var.var.length() - 1);
       }
-
-      c=key;
-
-      if ((c>='a' && c<='z') || (c>='A' && c<='Z') ) {
-        var.var = var.var+c;
-      }  
+      c = key;
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        var.var = var.var + c;
+      }
       return(true);
     }
     return(false);
