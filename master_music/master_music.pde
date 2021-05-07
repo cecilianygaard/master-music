@@ -26,7 +26,7 @@ SinOsc createSinOsc() {
 
 void setup() {  
   size(540, 960);
- 
+
   screenWidth = width;
   screenHeight = height;
 
