@@ -68,8 +68,7 @@ class PerfectPitchTrainerScreen extends Screen {
       if (selectedTone == playedTone) {
         app.changePage(app.currentPage, app.correctAnswerScreen);
         toneEverBeenPlayed = false;
-      }
-      if (selectedTone != playedTone) {
+      } else {
         app.changePage(app.currentPage, app.wrongAnswerScreen);
         toneEverBeenPlayed = false;
       }

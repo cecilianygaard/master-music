@@ -26,6 +26,8 @@ SinOsc createSinOsc() {
 
 void setup() {  
   size(540, 960);
+    PFont f = createFont("Ariel", 100);
+    textFont(f);
 
   screenWidth = width;
   screenHeight = height;
