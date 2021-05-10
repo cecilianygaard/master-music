@@ -12,14 +12,14 @@ class LoginScreen extends Screen {
   Text signupText2;
   Button signupButton;
 
-  StringVariable username;
-  StringVariable password;
+  StringVariable varUsername;
+  StringVariable varPassword;
 
   LoginScreen() {
     super();
 
-    username = new StringVariable();  
-    password = new StringVariable();
+    varUsername = new StringVariable();  
+    varPassword = new StringVariable();
 
     welcomeText = new Text(50, 70, 1080, "Welcome to Master-Music!");
     addPanel(welcomeText);
@@ -34,10 +34,10 @@ class LoginScreen extends Screen {
     loginButton.bindEvent(this, "onLoginButtonClicked");
     addPanel(loginButton);
 
-    usernameInput = new Input(600, 600, 300, 50, username);
+    usernameInput = new Input(600, 600, 300, 50, varUsername);
     addPanel(usernameInput);
 
-    passwordInput = new Input(600, 700, 300, 50, password);
+    passwordInput = new Input(600, 700, 300, 50, varPassword);
     addPanel(passwordInput);
 
     usernameText = new Text(180, 595, 400, "Username:");
@@ -64,8 +64,13 @@ class LoginScreen extends Screen {
   }
 
   void onLoginButtonClicked(Button b) {
+   MasterMusic_db.query("select * from users where username = \""+varUsername + "\"and Password = \""+preHashPassword+"\"");
+
+    // Tjek først om det indtastede username stemmer overens med det gemte username
+    if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
+    }
   }
 
   void onSignupButtonClicked(Button b) {
