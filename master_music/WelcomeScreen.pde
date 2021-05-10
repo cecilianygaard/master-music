@@ -28,8 +28,8 @@ class WelcomeScreen extends Screen {
     musicTheoryFlashcards.bindEvent(this, "onMusicTheoryFlashcardsClicked");
     addPanel(musicTheoryFlashcards);
 
-    highscoreButton = new Button(300, 200, 250, 50, "Highscore"); 
-    highscoreButton.bindEvent(this, "highscoreButtonClicked");
+    highscoreButton = new Button(750, 40, 250, 50, "Highscore"); 
+    highscoreButton.bindEvent(this, "onHighscoreButtonClicked");
     addPanel(highscoreButton);
   }
 
@@ -46,6 +46,6 @@ class WelcomeScreen extends Screen {
   }
 
   void onHighscoreButtonClicked(Button b) {
-    
+    app.screenStackChange(app.highscoreScreen);
   }
 }

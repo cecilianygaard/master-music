@@ -1,18 +1,9 @@
 class HighscoreScreen extends Screen {
+  Text highscoreText; 
 
   HighscoreScreen() {
     super();
+    highscoreText = new Text(400, 70, 1080, "your best highscore:"); 
+    addPanel(highscoreText);
   }
 }
-
-//void setup() {
-//size(540, 960);   
-//}
-
-//void draw() {
-//background(255); 
-//textSize(22); 
-//text("Highest Highscore:", 50, 80); 
-//fill(0);
-
-//}
