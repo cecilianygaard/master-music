@@ -2,7 +2,7 @@ class MusicTheoryFlashcardsScreen extends Screen {
 
   Text instructionText;
   Button flashcardFront;
-
+  
   MusicTheoryFlashcardsScreen() {
     super();
 
@@ -38,7 +38,7 @@ class MusicTheoryFlashcardsScreen extends Screen {
     flashcardFront.bindEvent(this, "onFlashcardFrontClicked");
     addPanel(flashcardFront);
   }
-
+  
   void onFlashcardFrontClicked(Button b) {
     app.screenStackChange(app.musicTheoryFlashcardsScreen2);
   }

@@ -12,14 +12,14 @@ class LoginScreen extends Screen {
   Text signupText2;
   Button signupButton;
 
-  StringVariable varUsername;
-  StringVariable varPassword;
+  StringVariable username;
+  StringVariable password;
 
   LoginScreen() {
     super();
 
-    varUsername = new StringVariable();  
-    varPassword = new StringVariable();
+    username = new StringVariable();  
+    password = new StringVariable();
 
     welcomeText = new Text(50, 70, 1080, "Welcome to Master-Music!");
     addPanel(welcomeText);
@@ -34,10 +34,10 @@ class LoginScreen extends Screen {
     loginButton.bindEvent(this, "onLoginButtonClicked");
     addPanel(loginButton);
 
-    usernameInput = new Input(600, 600, 300, 50, varUsername);
+    usernameInput = new Input(600, 600, 300, 50, username);
     addPanel(usernameInput);
 
-    passwordInput = new Input(600, 700, 300, 50, varPassword);
+    passwordInput = new Input(600, 700, 300, 50, password);
     addPanel(passwordInput);
 
     usernameText = new Text(180, 595, 400, "Username:");
@@ -55,6 +55,7 @@ class LoginScreen extends Screen {
     signupButton = new Button(415, 945, 250, 50, "Sign up");
     signupButton.bindEvent(this, "onSignupButtonClicked");
     addPanel(signupButton);
+    
   }
 
   void onDraw() {
