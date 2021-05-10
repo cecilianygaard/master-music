@@ -1,9 +1,4 @@
 class MusicTheoryFlashcardsScreen extends Screen {
-  String local_question = "default local question ";
-  String local_answer = "default local answer";
-  int local_user_id = 0;
-  int local_instrument_id = 0;
-  int local_question_id = 0;
 
   Text instructionText;
   Button flashcardFront;
@@ -39,24 +34,11 @@ class MusicTheoryFlashcardsScreen extends Screen {
     //  local_answer = MasterMusic_db.getString("answer");
     //}
 
-    flashcardFront = new Button(210, 500, 700, 500, local_question);
+    flashcardFront = new Button(210, 500, 700, 500, " ");
     flashcardFront.bindEvent(this, "onFlashcardFrontClicked");
     addPanel(flashcardFront);
   }
 
-  String getlocal_answer() {
-    return local_answer;
-  }
-
-  void setlocal_answer(String _local_answer) {
-    local_answer = _local_answer;
-  }
-
-  //void setQuestion(String _local_question) {
-  //  local_question = _local_question;
-  //}
-
-  //answer til screen2 Hvordan? Snak med Elisabeth
   void onFlashcardFrontClicked(Button b) {
     app.screenStackChange(app.musicTheoryFlashcardsScreen2);
   }
