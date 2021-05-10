@@ -17,7 +17,7 @@ class NodeList {
 
     //Sharp sign.
     textSize(60);
-    text("\u266F", 510, 420);
+    text("\u266F", 510, 400);
   }
 
 
@@ -28,7 +28,7 @@ class NodeList {
 
     //Flat sign.
     textSize(60);
-    text("\u266D", 510, 470);
+    text("\u266D", 510, 450);
   }
 
 
@@ -46,7 +46,7 @@ class NodeList {
 
     //Sharp sign.
     textSize(60);
-    text("\u266F", 510, 480);
+    text("\u266F", 510, 460);
   }
 
 
@@ -57,7 +57,7 @@ class NodeList {
 
     //Flat sign.
     textSize(60);
-    text("\u266D", 510, 460);
+    text("\u266D", 510, 440);
   }
 
 
@@ -82,7 +82,7 @@ class NodeList {
 
     //Sharp sign.
     textSize(60);
-    text("\u266F", 510, 460);
+    text("\u266F", 510, 440);
   }
 
 
@@ -93,7 +93,7 @@ class NodeList {
 
     //Flat sign.
     textSize(60);
-    text("\u266D", 510, 440);
+    text("\u266D", 510, 420);
   }
 
   void G() {
@@ -110,7 +110,7 @@ class NodeList {
 
     //Sharp sign.
     textSize(60);
-    text("\u266F", 510, 450);
+    text("\u266F", 510, 430);
   }
 
 
@@ -121,7 +121,7 @@ class NodeList {
 
     //Flat sign.
     textSize(60);
-    text("\u266D", 510, 430);
+    text("\u266D", 510, 410);
   }
 
 
@@ -139,7 +139,7 @@ class NodeList {
 
     //Sharp sign.
     textSize(60);
-    text("\u266F", 510, 440);
+    text("\u266F", 510, 420);
   }
 
 
@@ -150,7 +150,7 @@ class NodeList {
 
     //Flat sign.
     textSize(60);
-    text("\u266D", 510, 420);
+    text("\u266D", 510, 400);
   }
 
 
