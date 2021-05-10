@@ -74,7 +74,7 @@ void draw() {
       }
 
       //Find instrument_id ved user_id
-      MasterMusic_db.query("SELECT * FROM instruments_users WHERE VarUser_id = user_id");
+      MasterMusic_db.query("SELECT * FROM instruments_users WHERE user_id = \""+ varUser_id +"\"");
 
       if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
         varInstrument_id = MasterMusic_db.getInt("instrument_id");
@@ -83,7 +83,7 @@ void draw() {
       //Find question_id ved brug af instrument_id (struktur), derefter sprøgsmål
       varQuestion_id = varInstrument_id * 100 + int(random(0, 2));
 
-      MasterMusic_db.query("SELECT * FROM questions WHERE VarQuestion_id = question_id");
+      MasterMusic_db.query("SELECT * FROM questions WHERE question_id = \""+ varQuestion_id +"\"");
 
       if (MasterMusic_db.next() && MasterMusic_db.getInt("question_id") == varQuestion_id) {
         varQuestion = MasterMusic_db.getString("question");
