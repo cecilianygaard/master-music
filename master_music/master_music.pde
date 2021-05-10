@@ -26,10 +26,9 @@ SinOsc createSinOsc() {
 
 void setup() {  
   size(540, 960);
+  PFont f = createFont("Ariel", 100);
+  textFont(f);
 
-   PFont f = createFont("Ariel", 100);
-    textFont(f);
-    
   screenWidth = width;
   screenHeight = height;
 
@@ -83,7 +82,7 @@ void draw() {
       text(varQuestion, 550, 875);
     }
   }
-  
+
   if (app.currentPage == app.musicTheoryFlashcardsScreen2) {
     if (varQuestion_id >= 0) {
       text(varAnswer, 550, 875);
