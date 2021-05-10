@@ -5,6 +5,7 @@ class WelcomeScreen extends Screen {
   Button perfectPitchTrainerButton;
   Button nodeNameTrainerButton;
   Button musicTheoryFlashcards;
+  Button highscoreButton;
 
   WelcomeScreen() {
     super();
@@ -26,6 +27,10 @@ class WelcomeScreen extends Screen {
     musicTheoryFlashcards = new Button(340, 800, 400, 150, "Music Theory Flashcards");
     musicTheoryFlashcards.bindEvent(this, "onMusicTheoryFlashcardsClicked");
     addPanel(musicTheoryFlashcards);
+
+    highscoreButton = new Button(300, 200, 250, 50, "Highscore"); 
+    highscoreButton.bindEvent(this, "highscoreButtonClicked");
+    addPanel(highscoreButton);
   }
 
   void onPerfectPitchTrainerButtonClicked(Button b) {
@@ -35,8 +40,12 @@ class WelcomeScreen extends Screen {
   void onNodeNameTrainerButtonClicked(Button b) {
     app.screenStackChange(app.nodeNameTrainerScreen);
   }
-  
+
   void onMusicTheoryFlashcardsClicked(Button b) {
     app.screenStackChange(app.musicTheoryFlashcardsScreen);
+  }
+
+  void onHighscoreButtonClicked(Button b) {
+    
   }
 }
