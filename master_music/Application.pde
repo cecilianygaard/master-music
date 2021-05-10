@@ -61,7 +61,6 @@ class Application extends Panel {
     addPanel(nodeNameTrainerScreen);
 
     musicTheoryFlashcardsScreen = new MusicTheoryFlashcardsScreen();
-    println(musicTheoryFlashcardsScreen.getlocal_answer());
     addPanel(musicTheoryFlashcardsScreen);
 
     musicTheoryFlashcardsScreen2 = new MusicTheoryFlashcardsScreen2();
