@@ -25,8 +25,6 @@ class NodeNameTrainerScreen extends Screen {
         buttons[index].bindEvent(this, "onNodeButtonsClicked");
         addPanel(buttons[index]);
       }
-
-      if previousPage = correct score ++1 
     }
   }
 

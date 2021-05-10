@@ -15,6 +15,6 @@ class MusicTheoryFlashcardsScreen3 extends Screen {
   }
 
   void onNextScreenButtonClicked(Button b) {
-    app.screenStackChange(app.musicTheoryFlashcardsScreen);
+    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen);
   }
 }
