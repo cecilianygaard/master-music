@@ -61,44 +61,44 @@ void draw() {
   app.drawPanel();
   app.timerCheck();
 
-  if (app.currentPage == app.musicTheoryFlashcardsScreen) {
-
-    if (MasterMusic_db.connect()) {
+  if (MasterMusic_db.connect()) {
+    if (app.currentPage == app.musicTheoryFlashcardsScreen) {
 
       MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+preHashPassword+"\"");
 
       // Find først user_id ved username
-      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+      if (MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+        println("yes");
         varUser_id = MasterMusic_db.getInt("user_id");
         println(varUser_id);
       }
 
-      //Find instrument_id ved user_id
-      MasterMusic_db.query("SELECT * FROM instruments_users WHERE user_id = \""+ varUser_id +"\"");
+      //  //Find instrument_id ved user_id
+      //  MasterMusic_db.query("SELECT * FROM instruments_users WHERE user_id = \""+ varUser_id +"\"");
 
-      if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
-        varInstrument_id = MasterMusic_db.getInt("instrument_id");
-      }
+      //  if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
+      //    varInstrument_id = MasterMusic_db.getInt("instrument_id");
+      //  }
 
-      //Find question_id ved brug af instrument_id (struktur), derefter sprøgsmål
-      varQuestion_id = varInstrument_id * 100 + int(random(0, 2));
+      //  //Find question_id ved brug af instrument_id (struktur), derefter sprøgsmål
+      //  varQuestion_id = varInstrument_id * 100 + int(random(0, 2));
 
-      MasterMusic_db.query("SELECT * FROM questions WHERE question_id = \""+ varQuestion_id +"\"");
+      //  MasterMusic_db.query("SELECT * FROM questions WHERE question_id = \""+ varQuestion_id +"\"");
 
-      if (MasterMusic_db.next() && MasterMusic_db.getInt("question_id") == varQuestion_id) {
-        varQuestion = MasterMusic_db.getString("question");
-        varAnswer = MasterMusic_db.getString("answer");
-      }
+      //  if (MasterMusic_db.next() && MasterMusic_db.getInt("question_id") == varQuestion_id) {
+      //    varQuestion = MasterMusic_db.getString("question");
+      //    varAnswer = MasterMusic_db.getString("answer");
+      //  }
 
-      if (varQuestion_id >= 0) {
-        text(varQuestion, 550, 875);
-      }
-    }
+      //  if (varQuestion_id >= 0) {
+      //    text(varQuestion, 550, 875);
+      //  }
+      //}
 
-    if (app.currentPage == app.musicTheoryFlashcardsScreen2) {
-      if (varQuestion_id >= 0) {
-        text(varAnswer, 550, 875);
-      }
+      //if (app.currentPage == app.musicTheoryFlashcardsScreen2) {
+      //  if (varQuestion_id >= 0) {
+      //    text(varAnswer, 550, 875);
+      //  }
     }
   }
 }
