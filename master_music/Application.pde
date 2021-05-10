@@ -13,6 +13,7 @@ class Application extends Panel {
 
   private long timerSecondsSince70 = 0;
   private boolean timerStarted = false;
+  
 
   Header header;
   Footer footer;
@@ -25,7 +26,7 @@ class Application extends Panel {
   NodeNameTrainerScreen nodeNameTrainerScreen;
   MusicTheoryFlashcardsScreen musicTheoryFlashcardsScreen;
   MusicTheoryFlashcardsScreen2 musicTheoryFlashcardsScreen2;
-  HighscoreScreen highScoreScreen; 
+  HighscoreScreen highscoreScreen; 
   int gameScore = 0;
   String userName;
 
@@ -65,6 +66,9 @@ class Application extends Panel {
 
     musicTheoryFlashcardsScreen2 = new MusicTheoryFlashcardsScreen2();
     addPanel(musicTheoryFlashcardsScreen2);
+    
+    highscoreScreen = new HighscoreScreen(); 
+    addPanel(highscoreScreen); 
 
     currentPage = loginScreen;
   }
