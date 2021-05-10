@@ -70,7 +70,7 @@ class LoginScreen extends Screen {
    // if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
-    }
+    // }
   }
 
   void onSignupButtonClicked(Button b) {
