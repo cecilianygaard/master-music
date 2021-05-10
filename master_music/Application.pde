@@ -27,6 +27,8 @@ class Application extends Panel {
   MusicTheoryFlashcardsScreen musicTheoryFlashcardsScreen;
   MusicTheoryFlashcardsScreen2 musicTheoryFlashcardsScreen2;
   HighscoreScreen highscoreScreen; 
+  MusicTheoryFlashcardsScreen3 musicTheoryFlashcardsScreen3;
+  HighscoreScreen highScoreScreen; 
   int gameScore = 0;
   String userName;
 
@@ -70,6 +72,9 @@ class Application extends Panel {
     highscoreScreen = new HighscoreScreen(); 
     addPanel(highscoreScreen); 
 
+    musicTheoryFlashcardsScreen3 = new MusicTheoryFlashcardsScreen3();
+    addPanel(musicTheoryFlashcardsScreen3);
+    
     currentPage = loginScreen;
   }
 
