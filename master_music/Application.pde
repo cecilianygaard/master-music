@@ -25,7 +25,7 @@ class Application extends Panel {
   NodeNameTrainerScreen nodeNameTrainerScreen;
   MusicTheoryFlashcardsScreen musicTheoryFlashcardsScreen;
   MusicTheoryFlashcardsScreen2 musicTheoryFlashcardsScreen2;
-
+  HighscoreScreen highScoreScreen; 
   int gameScore = 0;
   String userName;
 
