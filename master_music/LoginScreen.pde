@@ -30,7 +30,7 @@ class LoginScreen extends Screen {
     loginText = new Text(480, 500, 500, "Log in");
     addPanel(loginText);
 
-    loginButton = new Button(390, 800, 300, 50, "Log in");
+    loginButton = new Button(390, 820, 300, 50, "Log in");
     loginButton.bindEvent(this, "onLoginButtonClicked");
     addPanel(loginButton);
 
@@ -46,13 +46,13 @@ class LoginScreen extends Screen {
     passwordText = new Text(180, 695, 400, "Password:");
     addPanel(passwordText);
 
-    signupText = new Text(310, 845, 1000, "Don't have an account yet?");
+    signupText = new Text(320, 950, 1000, "Don't have an account yet?");
     addPanel(signupText);
 
-    signupText2 = new Text(350, 895, 1000, "Click here to sign up!");
+    signupText2 = new Text(370, 1015, 1000, "Click here to sign up!");
     addPanel(signupText2);
 
-    signupButton = new Button(415, 945, 250, 50, "Sign up");
+    signupButton = new Button(415, 1100, 250, 50, "Sign up");
     signupButton.bindEvent(this, "onSignupButtonClicked");
     addPanel(signupButton);
   }
@@ -60,7 +60,7 @@ class LoginScreen extends Screen {
   void onDraw() {
     noFill();
     stroke(0);
-    rect(150, 475, 780, 525, 15);
+    rect(150, 475, 780, 725, 15);
   }
 
   void onLoginButtonClicked(Button b) {
