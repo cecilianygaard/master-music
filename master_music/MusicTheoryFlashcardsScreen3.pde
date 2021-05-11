@@ -1,20 +1,16 @@
 class MusicTheoryFlashcardsScreen3 extends Screen {
 
-  Text registeredText;
-  Button nextScreenButton;
+  Button flashcardFront;
 
   MusicTheoryFlashcardsScreen3() {
     super();
 
-    registeredText = new Text(450, 150, 1080, "Your answer is registered!");
-    addPanel(registeredText);
-
-    nextScreenButton = new Button(340, 400, 400, 200, "Click for new flashcard");
-    nextScreenButton.bindEvent(this, "onNextScreenButtonClicked");
-    addPanel(nextScreenButton);
+    flashcardFront = new Button(210, 500, 700, 500, "Keep up the good work! Click for new flashcard. ");
+    flashcardFront.bindEvent(this, "onFlashcardFrontClicked");
+    addPanel(flashcardFront);
   }
 
-  void onNextScreenButtonClicked(Button b) {
-    app.screenStackChange(app.musicTheoryFlashcardsScreen);
+  void onFlashcardFrontClicked(Button b) {
+    app.changePage(app.currentPage, app.musicTheoryFlashcardsScreen);
   }
 }

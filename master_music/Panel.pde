@@ -108,7 +108,7 @@ class Panel {
     for (Panel p : Children) {
       if (p.typed()) return (true);
     }
-    
+
     if (onTyped()) return(true);
 
     return(false);
@@ -128,11 +128,13 @@ class TimeToday extends Panel {
   }
 
   void onDraw() {
+    long t = app.getTimeToday();
+
     textSize(35);
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();
-    text(writtenText + " " + app.getTimeToday(), 0, 0, w, h);
+    text(writtenText + " " + String.format("%02.0f", (float)(t/360)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
   }
 }
 
@@ -145,10 +147,12 @@ class TimeTotal extends Panel {
   }
 
   void onDraw() {
+    long t = app.getTimeTotal();
+
     textSize(35);
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();
-    text(writtenText + " " + app.getTimeTotal(), 0, 0, w, h);
+    text(writtenText + " " + String.format("%02.0f", (float)(t/360)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
   }
 }
