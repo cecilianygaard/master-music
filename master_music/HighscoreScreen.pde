@@ -5,6 +5,7 @@ class HighscoreScreen extends Screen {
 
   HighscoreScreen() {
     super();
+    
     highscoreText = new Text(175, 70, 1080, "Hi Sara! Take a look at your best achievements!"); 
     addPanel(highscoreText);
 

@@ -129,6 +129,8 @@ class TimeToday extends Panel {
 
   void onDraw() {
     long t = app.getTimeToday();
+    int saveInDatabaseTimeToday;
+    saveInDatabaseTimeToday = (int)t;
 
     textSize(35);
     textAlign(LEFT, CENTER);
@@ -148,6 +150,8 @@ class TimeTotal extends Panel {
 
   void onDraw() {
     long t = app.getTimeTotal();
+    int saveInDatabaseTimeTotal;
+    saveInDatabaseTimeTotal = (int)t;
 
     textSize(35);
     textAlign(LEFT, CENTER);
