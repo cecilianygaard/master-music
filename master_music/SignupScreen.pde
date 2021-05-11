@@ -1,4 +1,8 @@
-class SignupScreen extends Screen { //<>//
+class SignupScreen extends Screen { //<>// //<>//
+
+
+  //PrintWriter output; skulle ha været med til at gøre så de eksterne dokumenter for save funktion ikke ville overskrive hinanden  
+
 
   Boolean visible = false;
   String choosenInstrument;
@@ -93,15 +97,15 @@ class SignupScreen extends Screen { //<>//
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.loginScreen);
     saveStringsCustom();
-    println("forsøger at gemme!!");
   }
 
   void saveStringsCustom() {
+    // TODO: save in database. 
     //String words = usernameInput.var.var; 
     String[] usernameListe = {usernameInput.var.var};
-    saveStrings("minFilUsername.txt", usernameListe);
+    saveStrings("minFilUsernameSignup.txt", usernameListe); 
     String[] passwordListe = {passwordInput.var.var};
-    saveStrings("minFilPassword.txt", passwordListe);
+    saveStrings("minFilPasswordSignup.txt", passwordListe);
   }
 
   void onInstrumentButtonClicked(Button b) {
