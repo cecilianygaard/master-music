@@ -1,4 +1,4 @@
-class SignupScreen extends Screen {
+class SignupScreen extends Screen { //<>//
 
   Text welcomeText;
   Text welcomeText2;
@@ -62,5 +62,15 @@ class SignupScreen extends Screen {
 
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.loginScreen);
+    saveStringsCustom();
+    println("forsøger at gemme!!");
+  }
+
+  void saveStringsCustom() {
+    //String words = usernameInput.var.var; 
+    String[] usernameListe = {usernameInput.var.var};
+    saveStrings("minFilUsername.txt", usernameListe);
+    String[] passwordListe = {passwordInput.var.var};
+    saveStrings("minFilPassword.txt", passwordListe);
   }
 }
