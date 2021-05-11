@@ -13,9 +13,12 @@ class PerfectPitchTrainerScreen extends Screen {
   int playedTone;
   int selectedTone;
   SinOsc Sine;
+  CorrectAnswerScreen correctAnswerScreen;
 
   PerfectPitchTrainerScreen() {
     super();
+
+    correctAnswerScreen = new CorrectAnswerScreen();
 
     Sine = createSinOsc();
 
@@ -23,7 +26,7 @@ class PerfectPitchTrainerScreen extends Screen {
     playToneButton.bindEvent(this, "onPlayToneButtonClicked");
     addPanel(playToneButton);
 
-    scoreText = new Text(475, 900, 300, "Score: " + "5"); //TODO: Insert score instead of 5.
+    scoreText = new Text(475, 900, 300, "Score: " + correctAnswerScreen.highscorePerfectPitchTrainer); //TODO: Insert score instead of 5.
     addPanel(scoreText);
 
     for (int y = 0; y < 3; y++) {
