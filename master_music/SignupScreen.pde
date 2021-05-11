@@ -1,5 +1,7 @@
 class SignupScreen extends Screen { //<>//
 
+  //PrintWriter output; virker ikke, og det vil blive nævnt i konklusionen 
+
   Text welcomeText;
   Text welcomeText2;
   Text signupText;
@@ -63,13 +65,12 @@ class SignupScreen extends Screen { //<>//
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.loginScreen);
     saveStringsCustom();
-    println("forsøger at gemme!!");
   }
 
   void saveStringsCustom() {
     //String words = usernameInput.var.var; 
     String[] usernameListe = {usernameInput.var.var};
-    saveStrings("minFilUsername.txt", usernameListe);
+    saveStrings("minFilUsername.txt", usernameListe); 
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilPassword.txt", passwordListe);
   }
