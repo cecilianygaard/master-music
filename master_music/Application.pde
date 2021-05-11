@@ -13,15 +13,15 @@ class Application extends Panel {
 
   private long timerSecondsSince70 = 0;
   private boolean timerStarted = false;
-  
+
 
   Header header;
   Footer footer;
   LoginScreen loginScreen;
   SignupScreen signupScreen;
   WelcomeScreen welcomeScreen;
-  PerfectPitchTrainerScreen perfectPitchTrainerScreen;
   CorrectAnswerScreen correctAnswerScreen;
+  PerfectPitchTrainerScreen perfectPitchTrainerScreen;
   WrongAnswerScreen wrongAnswerScreen;
   NodeNameTrainerScreen nodeNameTrainerScreen;
   MusicTheoryFlashcardsScreen musicTheoryFlashcardsScreen;
@@ -51,16 +51,16 @@ class Application extends Panel {
     welcomeScreen = new WelcomeScreen();
     addPanel(welcomeScreen);
 
-    perfectPitchTrainerScreen = new PerfectPitchTrainerScreen();
-    addPanel(perfectPitchTrainerScreen);
-
     correctAnswerScreen = new CorrectAnswerScreen();
     addPanel(correctAnswerScreen);
 
-    wrongAnswerScreen = new WrongAnswerScreen();
+    perfectPitchTrainerScreen = new PerfectPitchTrainerScreen(correctAnswerScreen);
+    addPanel(perfectPitchTrainerScreen);
+
+    wrongAnswerScreen = new WrongAnswerScreen(correctAnswerScreen);
     addPanel(wrongAnswerScreen);
 
-    nodeNameTrainerScreen = new NodeNameTrainerScreen();
+    nodeNameTrainerScreen = new NodeNameTrainerScreen(correctAnswerScreen);
     addPanel(nodeNameTrainerScreen);
 
     musicTheoryFlashcardsScreen = new MusicTheoryFlashcardsScreen();
@@ -68,13 +68,13 @@ class Application extends Panel {
 
     musicTheoryFlashcardsScreen2 = new MusicTheoryFlashcardsScreen2();
     addPanel(musicTheoryFlashcardsScreen2);
-    
+
     musicTheoryFlashcardsScreen3 = new MusicTheoryFlashcardsScreen3();
     addPanel(musicTheoryFlashcardsScreen3);
-    
+
     highscoreScreen = new HighscoreScreen(); 
     addPanel(highscoreScreen); 
-    
+
     currentPage = loginScreen;
   }
 

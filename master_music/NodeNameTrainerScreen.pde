@@ -1,4 +1,4 @@
-class NodeNameTrainerScreen extends Screen {
+class NodeNameTrainerScreen extends Screen { //<>//
 
   NodeList nodeList;
   Text questionText;
@@ -9,16 +9,17 @@ class NodeNameTrainerScreen extends Screen {
   String correctButtonText;
   CorrectAnswerScreen correctAnswerScreen;
 
-  NodeNameTrainerScreen() {
+  NodeNameTrainerScreen(CorrectAnswerScreen s) {
     super();
     
-    correctAnswerScreen = new CorrectAnswerScreen();
-
+    correctAnswerScreen = s;
+    
     nodeList = new NodeList();
+    
     questionText = new Text(380, 250, 400, "Which node is this?"); //TODO: Insert random question.
     addPanel(questionText);
 
-    scoreText = new Text(475, 900, 300, "Score: " + correctAnswerScreen.highscorePerfectPitchTrainer); //TODO: Insert score instead of 5.
+    scoreText = new Text(475, 900, 300, "Score: " + correctAnswerScreen.highscoreNodeNameTrainer);
     addPanel(scoreText);
 
     for (int y = 0; y < 3; y++) {
@@ -32,7 +33,8 @@ class NodeNameTrainerScreen extends Screen {
   }
 
   void onOpen() {
-    shownNode = floor(random(17));
+    shownNode = floor(random(17)); //<>//
+    scoreText.writtenText = "Score: " + correctAnswerScreen.highscoreNodeNameTrainer;
   }
 
   void onDraw() {

@@ -1,4 +1,4 @@
-import processing.sound.*;
+import processing.sound.*; //<>// //<>//
 
 class PerfectPitchTrainerScreen extends Screen {
 
@@ -15,10 +15,10 @@ class PerfectPitchTrainerScreen extends Screen {
   SinOsc Sine;
   CorrectAnswerScreen correctAnswerScreen;
 
-  PerfectPitchTrainerScreen() {
+  PerfectPitchTrainerScreen(CorrectAnswerScreen s) {
     super();
 
-    correctAnswerScreen = new CorrectAnswerScreen();
+    correctAnswerScreen = s;
 
     Sine = createSinOsc();
 
@@ -37,6 +37,10 @@ class PerfectPitchTrainerScreen extends Screen {
         addPanel(buttons[index]);
       }
     }
+  }
+
+  void onOpen() {
+    scoreText.writtenText = "Score: " + correctAnswerScreen.highscorePerfectPitchTrainer;
   }
 
   void onPlayToneButtonClicked(Button b) {

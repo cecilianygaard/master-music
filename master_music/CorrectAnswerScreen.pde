@@ -1,4 +1,4 @@
-class CorrectAnswerScreen extends Screen {
+class CorrectAnswerScreen extends Screen { //<>// //<>//
 
   Text correctText;
   Button nextScreenButton;
@@ -7,7 +7,7 @@ class CorrectAnswerScreen extends Screen {
 
   CorrectAnswerScreen() {
     super();
-    
+
     correctText = new Text(450, 150, 1080, "CORRECT!");
     addPanel(correctText);
 
@@ -17,16 +17,13 @@ class CorrectAnswerScreen extends Screen {
   }
 
   void onNextScreenButtonClicked(Button b) {
-    if (app.previousPage == app.perfectPitchTrainerScreen) app.changePage(app.currentPage, app.perfectPitchTrainerScreen); 
-    if (app.previousPage == app.nodeNameTrainerScreen) app.changePage(app.currentPage, app.nodeNameTrainerScreen);
-  }
-
-  void onOpen() {
     if (app.previousPage == app.perfectPitchTrainerScreen) {
       highscorePerfectPitchTrainer++;
+      app.changePage(app.currentPage, app.perfectPitchTrainerScreen);
     }
     if (app.previousPage == app.nodeNameTrainerScreen) {
       highscoreNodeNameTrainer++;
+      app.changePage(app.currentPage, app.nodeNameTrainerScreen);
     }
   }
-}  
+}

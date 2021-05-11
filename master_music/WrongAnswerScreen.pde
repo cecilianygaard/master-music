@@ -2,9 +2,12 @@ class WrongAnswerScreen extends Screen {
 
   Text wrongText;
   Button nextScreenButton;
+  CorrectAnswerScreen correctAnswerScreen;
 
-  WrongAnswerScreen() {
+  WrongAnswerScreen(CorrectAnswerScreen s) {
     super();
+    
+    correctAnswerScreen = s;
 
     wrongText = new Text(215, 150, 1080, "TOUGH LUCK, BUT THAT WAS WRONG!");
     addPanel(wrongText);
@@ -15,7 +18,13 @@ class WrongAnswerScreen extends Screen {
   }
 
   void onNextScreenButtonClicked(Button b) {
-    if (app.previousPage == app.perfectPitchTrainerScreen) app.changePage(app.currentPage, app.perfectPitchTrainerScreen); 
-    if (app.previousPage == app.nodeNameTrainerScreen) app.changePage(app.currentPage, app.nodeNameTrainerScreen);
+    if (app.previousPage == app.perfectPitchTrainerScreen) {
+      correctAnswerScreen.highscorePerfectPitchTrainer = 0;
+      app.changePage(app.currentPage, app.perfectPitchTrainerScreen);
+    }
+    if (app.previousPage == app.nodeNameTrainerScreen) {
+      correctAnswerScreen.highscoreNodeNameTrainer = 0;
+      app.changePage(app.currentPage, app.nodeNameTrainerScreen);
+    }
   }
 }

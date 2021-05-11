@@ -106,8 +106,6 @@ void draw() {
   }
 }
 
-
-
 void mouseClicked() {
   app.clicked(floor(mouseX/scalingFactor), floor(mouseY/scalingFactor));
 }
