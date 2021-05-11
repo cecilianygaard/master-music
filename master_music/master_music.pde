@@ -63,7 +63,7 @@ void draw() {
   app.timerCheck();
 
   if (MasterMusic_db.connect()) {
-    println("loop1");
+    //println("loop1");
 
     if (page == 0) { 
 
@@ -111,8 +111,37 @@ void draw() {
     if (app.currentPage == app.musicTheoryFlashcardsScreen3) {
       page = 0;
       println("goodie");
+      println("loop2");
+      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+preHashPassword+"\"");
+
+      // Find først user_id ved username
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+        println("loop3");
+        varUser_id = MasterMusic_db.getInt("user_id");
+        println(varUser_id);
+      }
+
+      //Find instrument_id ved user_id
+      MasterMusic_db.query("SELECT * FROM instruments_users WHERE user_id = \""+varUser_id+"\"");
+
+      if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
+        println("loop4");
+        varInstrument_id = MasterMusic_db.getInt("instrument_id");
+      }
+
+      //Find question_id ved brug af instrument_id (struktur), derefter sprøgsmål
+      varQuestion_id = varInstrument_id * 100 + int(random(0, 3));
+
+      MasterMusic_db.query("SELECT * FROM questions WHERE question_id = \""+varQuestion_id+"\"");
+
+      if (MasterMusic_db.next() && MasterMusic_db.getInt("question_id") == varQuestion_id) {
+        println("loop5");
+        varQuestion = MasterMusic_db.getString("question");
+        varAnswer = MasterMusic_db.getString("answer");
+      }
     }
   }
+}
 }
 
 
