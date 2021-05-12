@@ -78,7 +78,7 @@ void draw() {
       }
 
       //Find instrument_id ved user_id
-      MasterMusic_db.query("SELECT * FROM instruments_users WHERE user_id = \""+varUser_id+"\"");
+      MasterMusic_db.query("SELECT * FROM instrument_users WHERE user_id = \""+varUser_id+"\"");
 
       if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
         varInstrument_id = MasterMusic_db.getInt("instrument_id");
