@@ -15,4 +15,4 @@ class HighscoreScreen extends Screen {
     perfectpitchText = new Text(175, 500, 1080, "Your best perfect pitch highscore:");
     addPanel(perfectpitchText);
   }
-}
+}  
