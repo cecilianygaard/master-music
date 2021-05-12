@@ -26,6 +26,9 @@ class SignupScreen extends Screen { //<>// //<>//
   StringVariable username;
   StringVariable password;
   StringVariable reenterPassword;
+  String SignUpVarUsername = " ";
+  String SignUpVarPassword = " ";
+  String SignUpVarReenterPassword = " ";
 
   SignupScreen() {
     super();
@@ -104,9 +107,13 @@ class SignupScreen extends Screen { //<>// //<>//
     //String words = usernameInput.var.var; 
     String[] usernameListe = {usernameInput.var.var};
     saveStrings("minFilUsernameSignup.txt", usernameListe); 
+    SignUpVarUsername = usernameListe [0];
+    println(SignUpVarUsername);
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilPasswordSignup.txt", passwordListe);
   }
+  
+  
 
   void onInstrumentButtonClicked(Button b) {
     pianoInstrumentButton.setVisible(visible);

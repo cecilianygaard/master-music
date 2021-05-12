@@ -64,24 +64,10 @@ class LoginScreen extends Screen {
   }
 
   void onLoginButtonClicked(Button b) {
-    //MasterMusic_db.query("select * from users where username = \""+varUsername + "\"and Password = \""+preHashPassword+"\"");
-
-    // // Tjek først om det indtastede username stemmer overens med det gemte username
-    // if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
-    //saveStringsCustom();
-    // }
   }
 }
-
-//void saveStringsCustom() {
-//String words = usernameInput.var.var; 
-//String[] usernameListe = {usernameInput.var.var};
-//saveStrings("minFilUsername.txt", usernameListe); 
-//String[] passwordListe = {passwordInput.var.var};
-//saveStrings("minFilPassword.txt", passwordListe);
-//}
 
 void onSignupButtonClicked(Button b) {
   app.screenStackChange(app.signupScreen);
