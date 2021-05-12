@@ -15,7 +15,7 @@ class Header extends Panel {
   }
 
   void onDraw() {
-    fill(171, 219, 227);
+    fill(145);
     noStroke();
     rect(0, 0, w, h);
   }

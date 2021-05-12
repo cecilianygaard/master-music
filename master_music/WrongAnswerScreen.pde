@@ -1,7 +1,5 @@
 class WrongAnswerScreen extends Screen {
-  
-  PImage img; 
-  
+
   Text wrongText;
   Button nextScreenButton;
   CorrectAnswerScreen correctAnswerScreen;
@@ -19,13 +17,6 @@ class WrongAnswerScreen extends Screen {
     addPanel(nextScreenButton);
   }
 
-  void onDraw(){
-    img = loadImage("wrongemoji.jpg"); 
-    image(img, 290, 650, 500, 500);
-    
-  }
-  
-  
   void onNextScreenButtonClicked(Button b) {
     if (app.previousPage == app.perfectPitchTrainerScreen) {
       correctAnswerScreen.highscorePerfectPitchTrainer = 0;
