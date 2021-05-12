@@ -97,6 +97,29 @@ class SignupScreen extends Screen { //<>// //<>//
     rect(150, 475, 780, 725, 15);
   }
 
+  void saveStringsCustom() {
+    // TODO: save in database. 
+    //String words = usernameInput.var.var; 
+    String[] usernameListe = {usernameInput.var.var};
+    saveStrings("minFilUsernameSignup.txt", usernameListe); 
+    SignUpVarUsername = usernameListe [0];
+    println(SignUpVarUsername);
+
+    String[] passwordListe = {passwordInput.var.var};
+    saveStrings("minFilPasswordSignup.txt", passwordListe);
+    SignUpVarPassword = passwordListe [0];
+    println(SignUpVarPassword);
+
+    String[] reenterPasswordListe = {reenterPasswordInput.var.var};
+    saveStrings("minFilReenterPasswordSignup.txt", reenterPasswordListe);
+    SignUpVarReenterPassword = reenterPasswordListe [0];
+    println(SignUpVarReenterPassword);
+
+    if (SignUpVarPassword == SignUpVarReenterPassword) {
+      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES ((SELECT users COUNT (*) + 1),\""+SignUpVarUsername + "\",\""+SignUpVarPassword + "\", 0, 0, 0, 0");
+    }
+  }
+
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.loginScreen);
     saveStringsCustom();
@@ -121,24 +144,5 @@ class SignupScreen extends Screen { //<>// //<>//
   void onViolinInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
     choosenInstrument = "violinChoosen";
-  }
-  
-  void saveStringsCustom() {
-    // TODO: save in database. 
-    //String words = usernameInput.var.var; 
-    String[] usernameListe = {usernameInput.var.var};
-    saveStrings("minFilUsernameSignup.txt", usernameListe); 
-    SignUpVarUsername = usernameListe [0];
-    println(SignUpVarUsername);
-
-    String[] passwordListe = {passwordInput.var.var};
-    saveStrings("minFilPasswordSignup.txt", passwordListe);
-    SignUpVarPassword = passwordListe [0];
-    println(SignUpVarPassword);
-
-    String[] reenterPasswordListe = {reenterPasswordInput.var.var};
-    saveStrings("minFilReenterPasswordSignup.txt", reenterPasswordListe);
-    SignUpVarReenterPassword = reenterPasswordListe [0];
-    println(SignUpVarReenterPassword);
   }
 }
