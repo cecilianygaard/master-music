@@ -11,8 +11,8 @@ int screenWidth;
 int screenHeight;
 int page = 0;
 
-String varUsername = "defaultuser";
-String preHashPassword = "defaultpassword";
+String varUsername = " ";
+String varPassword = " ";
 String varQuestion = "default question";
 String varAnswer = "default answer";
 int varUser_id = 0;
