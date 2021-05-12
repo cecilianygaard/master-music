@@ -11,8 +11,8 @@ int screenWidth;
 int screenHeight;
 int page = 0;
 
-String varUsername = "defaultuser";
-String preHashPassword = "defaultpassword";
+String varUsername = " ";
+String varPassword = " ";
 String varQuestion = "default question";
 String varAnswer = "default answer";
 int varUser_id = 0;
@@ -57,6 +57,10 @@ void setup() {
 }
 
 void draw() {
+  varUsername = app.loginScreen.getUsername();
+  varPassword = app.loginScreen.getPassword();
+  println(varPassword + varUsername);
+  
   background(255);
   scale(scalingFactor);
   app.drawPanel();
@@ -68,10 +72,10 @@ void draw() {
     if (page == 0) { 
 
      // println("loop2");
-      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+preHashPassword+"\"");
+      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
 
       // Find først user_id ved username
-      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
       //  println("loop3");
         varUser_id = MasterMusic_db.getInt("user_id");
        // println(varUser_id);

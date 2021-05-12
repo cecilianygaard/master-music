@@ -25,9 +25,9 @@ class CorrectAnswerScreen extends Screen { //<>//
 
       if (MasterMusic_db.connect()) {
 
-        MasterMusic_db.query("SELECT highscore_PerfectPitch FROM users WHERE username = \""+varUsername + "\"AND password = \""+preHashPassword+"\"");
+        MasterMusic_db.query("SELECT highscore_PerfectPitch FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
 
-        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
           savedHighscorePerfectPitch = MasterMusic_db.getInt("highscore_PerfectPitch");
         }
 
@@ -43,9 +43,9 @@ class CorrectAnswerScreen extends Screen { //<>//
 
       if (MasterMusic_db.connect()) {
 
-        MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+preHashPassword+"\"");
+        MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
 
-        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(preHashPassword)) {
+        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
           savedHighscoreNodeName = MasterMusic_db.getInt("highscore_NodeName");
         }
 
