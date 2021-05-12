@@ -59,7 +59,6 @@ void setup() {
 void draw() {
   varUsername = app.loginScreen.getUsername();
   varPassword = app.loginScreen.getPassword();
-  println(varPassword + varUsername);
   
   background(255);
   scale(scalingFactor);
