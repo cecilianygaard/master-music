@@ -101,20 +101,6 @@ class SignupScreen extends Screen { //<>// //<>//
     app.screenStackChange(app.loginScreen);
     saveStringsCustom();
   }
-
-  void saveStringsCustom() {
-    // TODO: save in database. 
-    //String words = usernameInput.var.var; 
-    String[] usernameListe = {usernameInput.var.var};
-    saveStrings("minFilUsernameSignup.txt", usernameListe); 
-    SignUpVarUsername = usernameListe [0];
-    println(SignUpVarUsername);
-    String[] passwordListe = {passwordInput.var.var};
-    saveStrings("minFilPasswordSignup.txt", passwordListe);
-  }
-  
-  
-
   void onInstrumentButtonClicked(Button b) {
     pianoInstrumentButton.setVisible(visible);
     guitarInstrumentButton.setVisible(visible);
@@ -135,5 +121,24 @@ class SignupScreen extends Screen { //<>// //<>//
   void onViolinInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
     choosenInstrument = "violinChoosen";
+  }
+  
+  void saveStringsCustom() {
+    // TODO: save in database. 
+    //String words = usernameInput.var.var; 
+    String[] usernameListe = {usernameInput.var.var};
+    saveStrings("minFilUsernameSignup.txt", usernameListe); 
+    SignUpVarUsername = usernameListe [0];
+    println(SignUpVarUsername);
+
+    String[] passwordListe = {passwordInput.var.var};
+    saveStrings("minFilPasswordSignup.txt", passwordListe);
+    SignUpVarPassword = passwordListe [0];
+    println(SignUpVarPassword);
+
+    String[] reenterPasswordListe = {reenterPasswordInput.var.var};
+    saveStrings("minFilReenterPasswordSignup.txt", reenterPasswordListe);
+    SignUpVarReenterPassword = reenterPasswordListe [0];
+    println(SignUpVarReenterPassword);
   }
 }
