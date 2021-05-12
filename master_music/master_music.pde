@@ -2,6 +2,8 @@ import processing.sound.*;
 import de.bezier.data.sql.mapper.*;
 import de.bezier.data.sql.*;
 
+PImage img; 
+
 //Turn debugger on and off by defining whether the boolean is true or false.
 boolean debugMode = false;
 Application app;
@@ -60,10 +62,13 @@ void draw() {
   varUsername = app.loginScreen.getUsername();
   varPassword = app.loginScreen.getPassword();
   
-  background(255);
+  //background(67);
   scale(scalingFactor);
   app.drawPanel();
   app.timerCheck();
+  img = loadImage("langnode.jpg");
+  image(img, 200, 1400); 
+
 
   if (MasterMusic_db.connect()) {
     //println("loop1");

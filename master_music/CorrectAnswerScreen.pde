@@ -1,5 +1,8 @@
 class CorrectAnswerScreen extends Screen { //<>//
 
+  PImage img; 
+  
+  
   Text correctText;
   Button nextScreenButton;
   int highscorePerfectPitchTrainer = 0;
@@ -16,6 +19,12 @@ class CorrectAnswerScreen extends Screen { //<>//
     nextScreenButton = new Button(340, 400, 400, 200, "Click to continue");
     nextScreenButton.bindEvent(this, "onNextScreenButtonClicked");
     addPanel(nextScreenButton);
+  }
+
+
+  void onDraw() {
+    img = loadImage("rightemoji2.jpg"); 
+    image(img, 290, 650, 500, 500); 
   }
 
   void onNextScreenButtonClicked(Button b) {

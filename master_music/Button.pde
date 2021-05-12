@@ -13,13 +13,13 @@ class Button extends Panel {
   }
 
   void onDraw() {
-    fill(225);
+    fill(177, 171, 227);
     stroke(0);
     strokeWeight(1);
     rect(0, 0, w, h, 15);
     textSize(25);
     textAlign(CENTER, CENTER);
-    fill(0);
+    fill(2, 1, 17);
     noStroke();
     text(buttonText, 0, 0, w, h);
   }
