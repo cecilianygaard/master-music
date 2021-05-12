@@ -67,8 +67,7 @@ class LoginScreen extends Screen {
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
   }
-}
-
-void onSignupButtonClicked(Button b) {
-  app.screenStackChange(app.signupScreen);
+  void onSignupButtonClicked(Button b) {
+    app.screenStackChange(app.signupScreen);
+  }
 }

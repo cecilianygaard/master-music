@@ -115,8 +115,9 @@ class SignupScreen extends Screen { //<>// //<>//
     SignUpVarReenterPassword = reenterPasswordListe [0];
     println(SignUpVarReenterPassword);
 
-    if (SignUpVarPassword == SignUpVarReenterPassword) {
-      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES ((SELECT users COUNT (*) + 1),\""+SignUpVarUsername + "\",\""+SignUpVarPassword + "\", 0, 0, 0, 0");
+    if (SignUpVarPassword.equals(SignUpVarReenterPassword)) {
+      println("Good job");
+      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (1,\""+SignUpVarUsername + "\",\""+SignUpVarPassword + "\",0,0,0,0)");
     }
   }
 
