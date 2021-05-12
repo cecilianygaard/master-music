@@ -14,6 +14,10 @@ class LoginScreen extends Screen {
 
   StringVariable varUsername;
   StringVariable varPassword;
+  
+  String password = " ";
+  String username = " ";
+  
 
   LoginScreen() {
     super();
@@ -62,10 +66,23 @@ class LoginScreen extends Screen {
     stroke(0);
     rect(150, 475, 780, 725, 15);
   }
-
+  
   void onLoginButtonClicked(Button b) {
+    String[] passwordListe = {passwordInput.var.var};
+    saveStrings("minFilReenterPasswordSignup.txt", passwordListe);
+    password = passwordListe [0];
+    println(password);
+    
+    String[] usernameListe = {usernameInput.var.var};
+    saveStrings("minFilReenterPasswordSignup.txt", usernameListe);
+    username = usernameListe [0];
+    println(username);
+    
+    MasterMusic_db.query("SELECT * FROM users WHERE username = \""+username + "\" AND password =\""+password + "\" ");
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(username) && MasterMusic_db.getString("password").equals(password)) {
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
+      }
   }
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.signupScreen);
