@@ -1,11 +1,9 @@
-class SignupScreen extends Screen { //<>// //<>//
+import java.security.*; //<>//
 
-
-  //PrintWriter output; skulle ha været med til at gøre så de eksterne dokumenter for save funktion ikke ville overskrive hinanden  
-
+class SignupScreen extends Screen { //<>//
 
   Boolean visible = false;
-  String choosenInstrument;
+  int choosenInstrument;
 
   Button signupButton;
   Input usernameInput;
@@ -29,6 +27,8 @@ class SignupScreen extends Screen { //<>// //<>//
   String SignUpVarUsername = " ";
   String SignUpVarPassword = " ";
   String SignUpVarReenterPassword = " ";
+  String SignUpVarPasswordHashed = " ";
+  int SignUpVarUser_id = 0;
 
   SignupScreen() {
     super();
@@ -116,8 +116,27 @@ class SignupScreen extends Screen { //<>// //<>//
     println(SignUpVarReenterPassword);
 
     if (SignUpVarPassword.equals(SignUpVarReenterPassword)) {
+
+      try {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        md.update(SignUpVarPassword.getBytes());    
+
+        byte[] byteList = md.digest();
+
+        StringBuffer hashedValueBuffer = new StringBuffer();
+        for (byte b : byteList)hashedValueBuffer.append(hex(b)); 
+
+        SignUpVarPasswordHashed = hashedValueBuffer.toString();
+
+        println(SignUpVarPasswordHashed);
+      }
+      catch (Exception e) {
+        System.out.println("Exception: "+e);
+      }
+
       println("Good job");
-      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (1,\""+SignUpVarUsername + "\",\""+SignUpVarPassword + "\",0,0,0,0)");
+      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (((SELECT COUNT (*) FROM users)+1),\""+SignUpVarUsername + "\",\""+SignUpVarPasswordHashed + "\",0,0,0,0)");
     }
   }
 
@@ -134,16 +153,39 @@ class SignupScreen extends Screen { //<>// //<>//
 
   void onPianoInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "pianoChoosen";
+    choosenInstrument = 1;
+    
+    println(choosenInstrument);
+    MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"AND password = \""+SignUpVarPasswordHashed +"\"");
+
+    if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
+      SignUpVarUser_id = MasterMusic_db.getInt("user_id");
+      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+    }
   }
 
   void onGuitarInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "guitarChoosen";
+    choosenInstrument = 3;
+    println(choosenInstrument);
+    MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"AND password = \""+SignUpVarPasswordHashed +"\"");
+
+    if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
+      SignUpVarUser_id = MasterMusic_db.getInt("user_id");
+      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+    }
   }
 
   void onViolinInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "violinChoosen";
+    choosenInstrument = 2;
+    
+    println(choosenInstrument);
+    MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"AND password = \""+SignUpVarPasswordHashed +"\"");
+
+    if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
+      SignUpVarUser_id = MasterMusic_db.getInt("user_id");
+      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+    }
   }
 }
