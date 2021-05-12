@@ -1,4 +1,4 @@
-class NodeNameTrainerScreen extends Screen { //<>//
+class NodeNameTrainerScreen extends Screen { //<>// //<>//
 
   NodeList nodeList;
   Text questionText;
@@ -11,11 +11,11 @@ class NodeNameTrainerScreen extends Screen { //<>//
 
   NodeNameTrainerScreen(CorrectAnswerScreen s) {
     super();
-    
+
     correctAnswerScreen = s;
-    
+
     nodeList = new NodeList();
-    
+
     questionText = new Text(380, 250, 400, "Which node is this?"); //TODO: Insert random question.
     addPanel(questionText);
 
@@ -33,7 +33,7 @@ class NodeNameTrainerScreen extends Screen { //<>//
   }
 
   void onOpen() {
-    shownNode = floor(random(17)); //<>//
+    shownNode = floor(random(17));
     scoreText.writtenText = "Score: " + correctAnswerScreen.highscoreNodeNameTrainer;
   }
 
@@ -123,6 +123,7 @@ class NodeNameTrainerScreen extends Screen { //<>//
     if (b.buttonText == correctButtonText) {
       app.changePage(app.currentPage, app.correctAnswerScreen);
     } else {
+      app.wrongAnswerScreen.setCorrectAnswer(correctButtonText);
       app.changePage(app.currentPage, app.wrongAnswerScreen);
     }
   }

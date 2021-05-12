@@ -6,7 +6,7 @@ class PerfectPitchTrainerScreen extends Screen {
   Text scoreText;
   String[] buttonTexts = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
   Button[] buttons = new Button[12];
-  int[] toneFrequences = {261, 277, 293, 311, 329, 349, 369, 391, 415, 440, 466, 493}; //TODO: Change to correct tones (see array two lines above).
+  int[] toneFrequences = {261, 277, 293, 311, 329, 349, 369, 391, 415, 440, 466, 493};
   Boolean toneIsPlaying = false;
   Boolean toneIsPaused = false;
   Boolean toneEverBeenPlayed = false;
@@ -76,6 +76,7 @@ class PerfectPitchTrainerScreen extends Screen {
         app.changePage(app.currentPage, app.correctAnswerScreen);
         toneEverBeenPlayed = false;
       } else {
+        app.wrongAnswerScreen.setCorrectAnswer(buttonTexts[playedTone]);
         app.changePage(app.currentPage, app.wrongAnswerScreen);
         toneEverBeenPlayed = false;
       }
