@@ -160,7 +160,7 @@ class SignupScreen extends Screen { //<>//
 
     if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
       SignUpVarUser_id = MasterMusic_db.getInt("user_id");
-      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+      MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
     }
   }
 
@@ -172,7 +172,7 @@ class SignupScreen extends Screen { //<>//
 
     if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
       SignUpVarUser_id = MasterMusic_db.getInt("user_id");
-      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+      MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
     }
   }
 
@@ -185,7 +185,7 @@ class SignupScreen extends Screen { //<>//
 
     if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername) && MasterMusic_db.getString("password").equals(SignUpVarPasswordHashed)) {
       SignUpVarUser_id = MasterMusic_db.getInt("user_id");
-      MasterMusic_db.query("INSERT INTO instruments_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
+      MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\"");
     }
   }
 }
