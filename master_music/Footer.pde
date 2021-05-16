@@ -5,15 +5,15 @@ class Footer extends Panel {
   Footer() {
     super(0, 120 + pageHeight, 1080, 120);
 
-    todayTime = new TimeToday(50, 10, 1080, "Time spend on app today: " + "");
+    todayTime = new TimeToday(50, 10, 1080, "Time spent on app today: " + "");
     addPanel(todayTime);
 
-    totalTime = new TimeTotal(50, 50, 1080, "Time spend on app in total: " + "");
+    totalTime = new TimeTotal(50, 50, 1080, "Time spent on app in total: " + "");
     addPanel(totalTime);
   }
 
   void onDraw() {
-    fill(145);
+    fill(171, 219, 227);
     noStroke();
     rect(0, 0, w, h);
   }

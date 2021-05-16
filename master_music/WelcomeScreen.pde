@@ -10,7 +10,7 @@ class WelcomeScreen extends Screen {
   WelcomeScreen() {
     super();
 
-    welcomeText = new Text(50, 70, 1080, "Welcome! Get Ready to lear and have fun!");
+    welcomeText = new Text(50, 70, 1080, "Welcome! Get ready to learn and have fun!");
     addPanel(welcomeText);
 
     welcomeText2 = new Text(50, 150, 1080, "Choose a music game:");

@@ -1,7 +1,9 @@
-class SignupScreen extends Screen { //<>//
+import java.security.*; //<>// //<>//
+
+class SignupScreen extends Screen {
 
   Boolean visible = false;
-  String choosenInstrument;
+  int choosenInstrument;
 
   Button signupButton;
   Input usernameInput;
@@ -22,6 +24,11 @@ class SignupScreen extends Screen { //<>//
   StringVariable username;
   StringVariable password;
   StringVariable reenterPassword;
+  String SignUpVarUsername = " ";
+  String SignUpVarPassword = " ";
+  String SignUpVarReenterPassword = " ";
+  String SignUpVarPasswordHashed = " ";
+  int SignUpVarUser_id = 0;
 
   SignupScreen() {
     super();
@@ -90,20 +97,55 @@ class SignupScreen extends Screen { //<>//
     rect(150, 475, 780, 725, 15);
   }
 
-  void onSignupButtonClicked(Button b) {
-    app.screenStackChange(app.loginScreen);
-    saveStringsCustom();
-    println("forsøger at gemme!!");
-  }
-
   void saveStringsCustom() {
+    // TODO: save in database. 
     //String words = usernameInput.var.var; 
     String[] usernameListe = {usernameInput.var.var};
-    saveStrings("minFilUsername.txt", usernameListe);
-    String[] passwordListe = {passwordInput.var.var};
-    saveStrings("minFilPassword.txt", passwordListe);
-  }
+    saveStrings("minFilUsernameSignup.txt", usernameListe); 
+    SignUpVarUsername = usernameListe [0];
+    println(SignUpVarUsername);
 
+    String[] passwordListe = {passwordInput.var.var};
+    saveStrings("minFilPasswordSignup.txt", passwordListe);
+    SignUpVarPassword = passwordListe [0];
+    println(SignUpVarPassword);
+
+    String[] reenterPasswordListe = {reenterPasswordInput.var.var};
+    saveStrings("minFilReenterPasswordSignup.txt", reenterPasswordListe);
+    SignUpVarReenterPassword = reenterPasswordListe [0];
+    println(SignUpVarReenterPassword);
+
+    if (SignUpVarPassword.equals(SignUpVarReenterPassword)) {
+
+      try {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+        md.update(SignUpVarPassword.getBytes());    
+
+        byte[] byteList = md.digest();
+
+        StringBuffer hashedValueBuffer = new StringBuffer();
+        for (byte b : byteList)hashedValueBuffer.append(hex(b)); 
+
+        SignUpVarPasswordHashed = hashedValueBuffer.toString();
+
+        println(SignUpVarPasswordHashed);
+      }
+      catch (Exception e) {
+        System.out.println("Exception: "+e);
+      }
+
+      println("Good job");
+      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (((SELECT COUNT (*) FROM users)+1),\""+SignUpVarUsername + "\",\""+SignUpVarPasswordHashed + "\",0,0,0,0)");
+
+      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"");
+
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername)) {
+        SignUpVarUser_id = MasterMusic_db.getInt("user_id");
+        println(SignUpVarUser_id);
+      }
+    }
+  }
   void onInstrumentButtonClicked(Button b) {
     pianoInstrumentButton.setVisible(visible);
     guitarInstrumentButton.setVisible(visible);
@@ -113,16 +155,25 @@ class SignupScreen extends Screen { //<>//
 
   void onPianoInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "pianoChoosen";
+    choosenInstrument = 1;
+    println(choosenInstrument);
+    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),((SELECT COUNT (*) FROM instrument_users)+1),\""+choosenInstrument + "\")");
   }
 
   void onGuitarInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "guitarChoosen";
+    choosenInstrument = 3;
+    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),((SELECT COUNT (*) FROM instrument_users)+1),\""+choosenInstrument + "\")");
   }
 
   void onViolinInstrumentButtonClicked(Button b) {
     //TODO: Save in database.
-    choosenInstrument = "violinChoosen";
+    choosenInstrument = 2;
+    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\")");
+  }
+
+  void onSignupButtonClicked(Button b) {
+    app.screenStackChange(app.loginScreen);
+    saveStringsCustom();
   }
 }

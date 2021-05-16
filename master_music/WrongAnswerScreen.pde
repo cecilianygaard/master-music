@@ -1,5 +1,7 @@
 class WrongAnswerScreen extends Screen {
 
+  PImage img; 
+
   Text wrongText;
   Button nextScreenButton;
   CorrectAnswerScreen correctAnswerScreen;
@@ -36,5 +38,10 @@ class WrongAnswerScreen extends Screen {
 
   void setCorrectAnswer(String answer) {
     correctAnswerText.setText("THE CORRECT ANSWER WAS: " + answer);
+  }
+
+  void onDraw() {
+    img = loadImage("wrongemoji.jpg"); 
+    image(img, 290, 650, 500, 500);
   }
 }

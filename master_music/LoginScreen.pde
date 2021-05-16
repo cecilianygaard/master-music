@@ -69,10 +69,9 @@ class LoginScreen extends Screen {
   }
 
   void onLoginButtonClicked(Button b) {
-<<<<<<< HEAD
     app.screenStackChange(app.welcomeScreen);
     app.timerStart();
-=======
+
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilReenterPasswordSignup.txt", passwordListe);
     preHashPassword = passwordListe [0];
@@ -82,41 +81,40 @@ class LoginScreen extends Screen {
     saveStrings("minFilReenterPasswordSignup.txt", usernameListe);
     username = usernameListe [0];
     println(username);
-    
+
     try {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
+      MessageDigest md = MessageDigest.getInstance("SHA-256");
 
-        md.update(preHashPassword.getBytes());    
+      md.update(preHashPassword.getBytes());    
 
-        byte[] byteList = md.digest();
+      byte[] byteList = md.digest();
 
-        StringBuffer hashedValueBuffer = new StringBuffer();
-        for (byte c : byteList)hashedValueBuffer.append(hex(c)); 
+      StringBuffer hashedValueBuffer = new StringBuffer();
+      for (byte c : byteList)hashedValueBuffer.append(hex(c)); 
 
-        password = hashedValueBuffer.toString();
+      password = hashedValueBuffer.toString();
 
-        println(password);
-      }
-      catch (Exception e) {
-        System.out.println("Exception: "+e);
-      }
+      println(password);
+    }
+    catch (Exception e) {
+      System.out.println("Exception: "+e);
+    }
 
     MasterMusic_db.query("SELECT * FROM users WHERE username = \""+username + "\" AND password =\""+password + "\" ");
     if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(username) && MasterMusic_db.getString("password").equals(password)) {
       app.screenStackChange(app.welcomeScreen);
       app.timerStart();
     }
->>>>>>> fd968358554dd3405c19e1d2006dd7df1b636529
   }
-  
+
   String getUsername() {
     return username;
   }
-  
+
   String getPassword() {
     return password;
   }
-  
+
   void onSignupButtonClicked(Button b) {
     app.screenStackChange(app.signupScreen);
   }
