@@ -26,17 +26,14 @@ class CorrectAnswerScreen extends Screen { //<>//
       highscorePerfectPitchTrainer++;
       app.changePage(app.currentPage, app.perfectPitchTrainerScreen);
 
-      if (MasterMusic_db.connect()) {
+      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername +"\"");
 
-        MasterMusic_db.query("SELECT highscore_PerfectPitch FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername)) {
+        savedHighscorePerfectPitch = MasterMusic_db.getInt("highscore_PerfectPitch");
+      }
 
-        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
-          savedHighscorePerfectPitch = MasterMusic_db.getInt("highscore_PerfectPitch");
-        }
-
-        if (highscorePerfectPitchTrainer > savedHighscorePerfectPitch) {
-          MasterMusic_db.query("UPDATE users SET highscore_PerfectPitch = \""+highscorePerfectPitchTrainer + "\" WHERE username = \""+varUsername + "\"");
-        }
+      if (highscorePerfectPitchTrainer > savedHighscorePerfectPitch) {
+        MasterMusic_db.query("UPDATE users SET highscore_PerfectPitch = \""+highscorePerfectPitchTrainer + "\" WHERE username = \""+varUsername + "\"");
       }
     }
 
@@ -44,17 +41,14 @@ class CorrectAnswerScreen extends Screen { //<>//
       highscoreNodeNameTrainer++;
       app.changePage(app.currentPage, app.nodeNameTrainerScreen);
 
-      if (MasterMusic_db.connect()) {
+      MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername +"\"");
 
-        MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
+      if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername)) {
+        savedHighscoreNodeName = MasterMusic_db.getInt("highscore_NodeName");
+      }
 
-        if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
-          savedHighscoreNodeName = MasterMusic_db.getInt("highscore_NodeName");
-        }
-
-        if (highscoreNodeNameTrainer > savedHighscoreNodeName) {
-          MasterMusic_db.query("UPDATE users SET highscore_NodeName = \""+highscoreNodeNameTrainer + "\" WHERE username = \""+varUsername + "\"");
-        }
+      if (highscoreNodeNameTrainer > savedHighscoreNodeName) {
+        MasterMusic_db.query("UPDATE users SET highscore_NodeName = \""+highscoreNodeNameTrainer + "\" WHERE username = \""+varUsername + "\"");
       }
     }
   }
