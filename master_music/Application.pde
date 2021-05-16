@@ -31,7 +31,7 @@ class Application extends Panel {
   HighscoreScreen highScoreScreen; 
   int gameScore = 0;
   String userName;
-
+  Boolean keyboardOpen = false; 
 
   Application() {
     super(floor((width - screenWidth)/scalingFactor/2), 0, floor(screenWidth/scalingFactor), floor(screenHeight/scalingFactor));
@@ -76,6 +76,20 @@ class Application extends Panel {
     addPanel(highscoreScreen); 
 
     currentPage = loginScreen;
+  }
+
+  void openAppKeyboard() {
+    if (keyboardOpen == false) {
+      openKeyboard();
+      keyboardOpen = true;
+    }
+  }
+
+  void closeAppKeyboard() {
+    if (keyboardOpen == true) {
+      closeKeyboard();
+      keyboardOpen = false;
+    }
   }
 
   void changePage(Panel from, Panel to) {

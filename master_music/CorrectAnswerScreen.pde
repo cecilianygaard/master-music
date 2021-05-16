@@ -1,4 +1,4 @@
-class CorrectAnswerScreen extends Screen { //<>//
+class CorrectAnswerScreen extends Screen {
 
   PImage img;
 
@@ -33,7 +33,7 @@ class CorrectAnswerScreen extends Screen { //<>//
       }
 
       if (highscorePerfectPitchTrainer > savedHighscorePerfectPitch) {
-        MasterMusic_db.query("UPDATE users SET highscore_PerfectPitch = \""+highscorePerfectPitchTrainer + "\" WHERE username = \""+varUsername + "\"");
+        MasterMusic_db.execute("UPDATE users SET highscore_PerfectPitch = \""+highscorePerfectPitchTrainer + "\" WHERE username = \""+varUsername + "\"");
       }
     }
 
@@ -48,7 +48,7 @@ class CorrectAnswerScreen extends Screen { //<>//
       }
 
       if (highscoreNodeNameTrainer > savedHighscoreNodeName) {
-        MasterMusic_db.query("UPDATE users SET highscore_NodeName = \""+highscoreNodeNameTrainer + "\" WHERE username = \""+varUsername + "\"");
+        MasterMusic_db.execute("UPDATE users SET highscore_NodeName = \""+highscoreNodeNameTrainer + "\" WHERE username = \""+varUsername + "\"");
       }
     }
   }

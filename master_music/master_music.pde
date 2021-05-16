@@ -1,6 +1,11 @@
 import processing.sound.*;
-import de.bezier.data.sql.mapper.*;
-import de.bezier.data.sql.*;
+import ketai.data.*;
+//import de.bezier.data.sql.mapper.*;
+//import de.bezier.data.sql.*;
+
+//Uncomment two lines underneath if running in Windows mode.
+//void openKeyboard() {}
+//void closeKeyboard() {}
 
 PImage img; 
 
@@ -21,16 +26,18 @@ int varUser_id = 0;
 int varInstrument_id = 0;
 int varQuestion_id = 0;
 
-SQLite MasterMusic_db;
+//SQLite MasterMusic_db;
+KetaiSQLite MasterMusic_db;
 
 SinOsc createSinOsc() {
   return new SinOsc(this);
 }
 
 void setup() {  
-  size(540, 960);
+  //size(540, 960);
+  fullScreen();
 
-  PFont f = createFont("Ariel", 100);
+  PFont f = createFont("SansSerif", 100);
   textFont(f);
 
   screenWidth = width;
@@ -43,7 +50,9 @@ void setup() {
   scalingFactor = (float)screenWidth/1080;
   pageHeight = floor(screenHeight/scalingFactor - 240);
 
-  MasterMusic_db = new SQLite (this, "data/MasterMusic.db");
+  //MasterMusic_db = new SQLite (this, "data/MasterMusic.db");
+  KetaiSQLite.load(this, "MasterMusic.db", "MasterMusic");
+  MasterMusic_db = new KetaiSQLite(this, "MasterMusic");
 
   app = new Application();
   app.openPanel();
@@ -110,10 +119,14 @@ void draw() {
   }
 }
 
-void mouseClicked() {
+void mouseReleased() {
   app.clicked(floor(mouseX/scalingFactor), floor(mouseY/scalingFactor));
 }
 
 void keyPressed() {
   app.typed();
+}
+
+void backPressed() {
+  app.screenStackBack();
 }

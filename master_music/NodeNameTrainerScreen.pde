@@ -1,4 +1,4 @@
-class NodeNameTrainerScreen extends Screen { //<>// //<>//
+class NodeNameTrainerScreen extends Screen { //<>//
 
   NodeList nodeList;
   Text questionText;
@@ -16,7 +16,7 @@ class NodeNameTrainerScreen extends Screen { //<>// //<>//
 
     nodeList = new NodeList();
 
-    questionText = new Text(380, 250, 400, "Which node is this?"); //TODO: Insert random question.
+    questionText = new Text(380, 250, 400, "Which node is this?");
     addPanel(questionText);
 
     scoreText = new Text(475, 900, 300, "Score: " + correctAnswerScreen.highscoreNodeNameTrainer);

@@ -136,7 +136,7 @@ class TimeToday extends Panel {
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();
-    text(writtenText + " " + String.format("%02.0f", (float)(t/360)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
+    text(writtenText + " " + String.format("%02.0f", (float)(t/3600)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
   }
 }
 
@@ -157,6 +157,6 @@ class TimeTotal extends Panel {
     textAlign(LEFT, CENTER);
     fill(0);
     noStroke();
-    text(writtenText + " " + String.format("%02.0f", (float)(t/360)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
+    text(writtenText + " " + String.format("%02.0f", (float)(t/3600)%24) + ":" + String.format("%02.0f", (float)(t/60)%60) + ":" + String.format("%02.0f", (float)t%60), 0, 0, w, h);
   }
 }
