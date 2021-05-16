@@ -1,4 +1,4 @@
-import java.security.*; //<>// //<>//
+import java.security.*; //<>//
 
 class SignupScreen extends Screen {
 
