@@ -115,7 +115,7 @@ class SignupScreen extends Screen {
     SignUpVarReenterPassword = reenterPasswordListe [0];
     println(SignUpVarReenterPassword);
 
-    if (SignUpVarPassword.equals(SignUpVarReenterPassword)) {
+    if (choosenInstrument != 0 && SignUpVarPassword.equals(SignUpVarReenterPassword)) {
 
       try {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -136,44 +136,46 @@ class SignupScreen extends Screen {
       }
 
       println("Good job");
-      MasterMusic_db.query("INSERT INTO users (user_id, username,password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (((SELECT COUNT (*) FROM users)+1),\""+SignUpVarUsername + "\",\""+SignUpVarPasswordHashed + "\",0,0,0,0)");
+      MasterMusic_db.query("INSERT INTO users (user_id, username, password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (((SELECT COUNT (*) FROM users)+1),\""+SignUpVarUsername + "\",\""+SignUpVarPasswordHashed + "\",0,0,0,0)");
 
       MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"");
 
       if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(SignUpVarUsername)) {
         SignUpVarUser_id = MasterMusic_db.getInt("user_id");
+        MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id+"\",\""+choosenInstrument + "\")");
+        app.screenStackChange(app.loginScreen);
         println(SignUpVarUser_id);
       }
     }
   }
+
   void onInstrumentButtonClicked(Button b) {
+    visible = !visible;
     pianoInstrumentButton.setVisible(visible);
     guitarInstrumentButton.setVisible(visible);
     violinInstrumentButton.setVisible(visible);
-    visible = !visible;
   }
 
   void onPianoInstrumentButtonClicked(Button b) {
-    //TODO: Save in database.
     choosenInstrument = 1;
     println(choosenInstrument);
-    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),((SELECT COUNT (*) FROM instrument_users)+1),\""+choosenInstrument + "\")");
+    onInstrumentButtonClicked(b);
+    instrumentButton.setText("Piano");
   }
 
   void onGuitarInstrumentButtonClicked(Button b) {
-    //TODO: Save in database.
     choosenInstrument = 3;
-    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),((SELECT COUNT (*) FROM instrument_users)+1),\""+choosenInstrument + "\")");
+    onInstrumentButtonClicked(b);
+    instrumentButton.setText("Guitar");
   }
 
   void onViolinInstrumentButtonClicked(Button b) {
-    //TODO: Save in database.
     choosenInstrument = 2;
-    MasterMusic_db.query("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id + "\",\""+choosenInstrument + "\")");
+    onInstrumentButtonClicked(b);
+    instrumentButton.setText("Violin");
   }
 
   void onSignupButtonClicked(Button b) {
-    app.screenStackChange(app.loginScreen);
     saveStringsCustom();
   }
 }

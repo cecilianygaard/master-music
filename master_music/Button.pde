@@ -32,4 +32,8 @@ class Button extends Panel {
     onPush.trigger(this);
     return(true);
   }
+
+  void setText(String text) {
+    buttonText = text;
+  }
 }

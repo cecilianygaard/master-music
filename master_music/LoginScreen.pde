@@ -69,9 +69,6 @@ class LoginScreen extends Screen {
   }
 
   void onLoginButtonClicked(Button b) {
-    app.screenStackChange(app.welcomeScreen);
-    app.timerStart();
-
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilReenterPasswordSignup.txt", passwordListe);
     preHashPassword = passwordListe [0];
