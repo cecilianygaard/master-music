@@ -17,7 +17,7 @@ Der er desuden oprettet en klasse, “Event”. Denne klasse er kopieret fra en 
 
 
 ## Database
-I programmet er der valgt SQLite som database. Til API'en er der valgt Bezier SQLite ved Windows mode, hvis der skiftes til Java i Processing, og der er valgt Kentai som den nuværende API ved Android mode.
+I programmet er der valgt SQLite som database. Til API'en er der valgt Bezier SQLite ved Windows mode, hvis der skiftes til Java i Processing, og der er valgt Kentai SQLite som den nuværende API ved Android mode.
 
 ## At skifte fra Android mode til Windows mode
 Hvis der ønskes at skifte tilbage fra Android til Windows, skal editeren ændres fra "Android" til "Java" i Processing. Desuden skal der tilføjes de linjer tilbage i stedet for de tilsvarende de steder, hvor der er kommenteret "WINDOWS MODE". Disse steder kan derved nemt findes ved at søge efter "WINDOWS MODE". 
