@@ -105,7 +105,7 @@ class Application extends Panel {
 
     isOpen = true;
 
-    // Open only initial screens
+    // Open only initial screens.
     header.openPanel();
     footer.openPanel();
     loginScreen.openPanel();

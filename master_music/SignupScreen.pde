@@ -98,22 +98,18 @@ class SignupScreen extends Screen {
   }
 
   void saveStringsCustom() {
-    // TODO: save in database. 
     //String words = usernameInput.var.var; 
     String[] usernameListe = {usernameInput.var.var};
     saveStrings("minFilUsernameSignup.txt", usernameListe); 
     SignUpVarUsername = usernameListe [0];
-    println(SignUpVarUsername);
 
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilPasswordSignup.txt", passwordListe);
     SignUpVarPassword = passwordListe [0];
-    println(SignUpVarPassword);
 
     String[] reenterPasswordListe = {reenterPasswordInput.var.var};
     saveStrings("minFilReenterPasswordSignup.txt", reenterPasswordListe);
-    SignUpVarReenterPassword = reenterPasswordListe [0];
-    println(SignUpVarReenterPassword);
+    SignUpVarReenterPassword = reenterPasswordListe [0];  
 
     if (choosenInstrument != 0 && SignUpVarPassword.equals(SignUpVarReenterPassword)) {
 
@@ -128,14 +124,11 @@ class SignupScreen extends Screen {
         for (byte b : byteList)hashedValueBuffer.append(hex(b)); 
 
         SignUpVarPasswordHashed = hashedValueBuffer.toString();
-
-        println(SignUpVarPasswordHashed);
       }
       catch (Exception e) {
         System.out.println("Exception: "+e);
       }
 
-      println("Good job");
       MasterMusic_db.execute("INSERT INTO users (user_id, username, password, timeToday, timeTotal, highscore_PerfectPitch, highscore_NodeName) VALUES (((SELECT COUNT (*) FROM users)+1),\""+SignUpVarUsername + "\",\""+SignUpVarPasswordHashed + "\",0,0,0,0)");
 
       MasterMusic_db.query("SELECT * FROM users WHERE username = \""+SignUpVarUsername + "\"");
@@ -144,7 +137,6 @@ class SignupScreen extends Screen {
         SignUpVarUser_id = MasterMusic_db.getInt("user_id");
         MasterMusic_db.execute("INSERT INTO instrument_users (instrument_user_id,user_id,instrument_id) VALUES (((SELECT COUNT (*) FROM instrument_users)+1),\""+SignUpVarUser_id+"\",\""+choosenInstrument + "\")");
         app.screenStackChange(app.loginScreen);
-        println(SignUpVarUser_id);
       }
     }
   }
@@ -158,7 +150,6 @@ class SignupScreen extends Screen {
 
   void onPianoInstrumentButtonClicked(Button b) {
     choosenInstrument = 1;
-    println(choosenInstrument);
     onInstrumentButtonClicked(b);
     instrumentButton.setText("Piano");
   }

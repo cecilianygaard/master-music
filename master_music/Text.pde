@@ -14,7 +14,7 @@ class Text extends Panel {
     noStroke();
     text(writtenText, 0, 0, w, h);
   }
-  
+
   void setText(String text) {
     writtenText = text;
   }

@@ -1,9 +1,10 @@
 import processing.sound.*;
 import ketai.data.*;
+//WINDOWS MODE: Uncomment two lines underneath if running in Windows mode.
 //import de.bezier.data.sql.mapper.*;
 //import de.bezier.data.sql.*;
 
-//Uncomment two lines underneath if running in Windows mode.
+//WINDOWS MODE: Uncomment two lines underneath if running in Windows mode.
 //void openKeyboard() {}
 //void closeKeyboard() {}
 
@@ -26,7 +27,7 @@ int varUser_id = 0;
 int varInstrument_id = 0;
 int varQuestion_id = 0;
 
-//SQLite MasterMusic_db;
+//SQLite MasterMusic_db; //WINDOWS MODE.
 KetaiSQLite MasterMusic_db;
 
 SinOsc createSinOsc() {
@@ -34,7 +35,7 @@ SinOsc createSinOsc() {
 }
 
 void setup() {  
-  //size(540, 960);
+  //size(540, 960); //WINDOWS MODE.
   fullScreen();
 
   PFont f = createFont("SansSerif", 100);
@@ -50,7 +51,7 @@ void setup() {
   scalingFactor = (float)screenWidth/1080;
   pageHeight = floor(screenHeight/scalingFactor - 240);
 
-  //MasterMusic_db = new SQLite (this, "data/MasterMusic.db");
+  //MasterMusic_db = new SQLite (this, "data/MasterMusic.db"); //WINDOWS MODE.
   KetaiSQLite.load(this, "MasterMusic.db", "MasterMusic");
   MasterMusic_db = new KetaiSQLite(this, "MasterMusic");
 
@@ -58,9 +59,7 @@ void setup() {
   app.openPanel();
 
   if (MasterMusic_db.connect()) {
-    println("Good job!");
   } else {
-    println("No Sir!");
     exit();
   }
 }
@@ -78,14 +77,11 @@ void draw() {
 
   if (page == 0) { 
 
-    // println("loop2");
     MasterMusic_db.query("SELECT * FROM users WHERE username = \""+varUsername + "\"AND password = \""+varPassword+"\"");
 
     // Find først user_id ved username
     if (MasterMusic_db.next() && MasterMusic_db.getString("username").equals(varUsername) && MasterMusic_db.getString("password").equals(varPassword)) {
-      //  println("loop3");
       varUser_id = MasterMusic_db.getInt("user_id");
-      // println(varUser_id);
     }
 
     //Find instrument_id ved user_id
@@ -93,15 +89,13 @@ void draw() {
 
     if (MasterMusic_db.next() && MasterMusic_db.getInt("user_id") == varUser_id) {
       varInstrument_id = MasterMusic_db.getInt("instrument_id");
-      //Find question_id ved brug af instrument_id (struktur), derefter sprøgsmål
+      //Find question_id ved brug af instrument_id (struktur), derefter spørgsmål.
       varQuestion_id = varInstrument_id * 100 + int(random(0, 3));
-      //println("loop4");
     }
 
     MasterMusic_db.query("SELECT * FROM questions WHERE question_id = \""+varQuestion_id+"\"");
 
     if (MasterMusic_db.next() && MasterMusic_db.getInt("question_id") == varQuestion_id) {
-      //println("loop5");
       varQuestion = MasterMusic_db.getString("question");
       varAnswer = MasterMusic_db.getString("answer");
       page = 1;

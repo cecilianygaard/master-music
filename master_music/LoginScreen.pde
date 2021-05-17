@@ -72,12 +72,10 @@ class LoginScreen extends Screen {
     String[] passwordListe = {passwordInput.var.var};
     saveStrings("minFilReenterPasswordSignup.txt", passwordListe);
     preHashPassword = passwordListe [0];
-    println(preHashPassword);
 
     String[] usernameListe = {usernameInput.var.var};
     saveStrings("minFilReenterPasswordSignup.txt", usernameListe);
     username = usernameListe [0];
-    println(username);
 
     try {
       MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -90,8 +88,6 @@ class LoginScreen extends Screen {
       for (byte c : byteList)hashedValueBuffer.append(hex(c)); 
 
       password = hashedValueBuffer.toString();
-
-      println(password);
     }
     catch (Exception e) {
       System.out.println("Exception: "+e);

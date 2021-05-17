@@ -1,4 +1,4 @@
-class NodeNameTrainerScreen extends Screen { //<>//
+class NodeNameTrainerScreen extends Screen {
 
   NodeList nodeList;
   Text questionText;
@@ -44,8 +44,8 @@ class NodeNameTrainerScreen extends Screen { //<>//
     }
 
     //G clef.
-    textSize(110);
-    text("\uD834\uDD1E", 335, 430);
+    textSize(80);
+    text("\uD834\uDD1E", 335, 450);
 
     switch(shownNode) {
     case 0: 

@@ -1,4 +1,4 @@
-import processing.sound.*; //<>//
+import processing.sound.*;
 
 class PerfectPitchTrainerScreen extends Screen {
 
