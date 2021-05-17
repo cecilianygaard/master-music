@@ -21,3 +21,6 @@ I programmet er der valgt SQLite som database. Til API'en er der valgt Bezier SQ
 
 ## At skifte fra Android mode til Windows mode
 Hvis der ønskes at skifte tilbage fra Android til Windows, skal editeren ændres fra "Android" til "Java" i Processing. Desuden skal der tilføjes de linjer tilbage i stedet for de tilsvarende de steder, hvor der er kommenteret "WINDOWS MODE". Disse steder kan derved nemt findes ved at søge efter "WINDOWS MODE". 
+
+## At logge ind
+Hvis der ønskes at logge ind i vores app, er der i forvejen oprettet en blank bruger, som har et blankt username og et blankt password. Denne bruger vil dermed kunne benyttes af alle. Hvis det ønskes, kan der desuden tilføjes en ny bruger via sign up siden.
